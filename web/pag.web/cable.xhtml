@@ -38,7 +38,7 @@
     </h:head>
 
     <h:body>
-        <f:event type="preRenderView" listener="#{paqueteBean.listarPaqueteInternet()}"/>
+        <f:event type="preRenderView" listener="#{paqueteBean.listarPaqueteCable()}"/>
         <!-- Fixed navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -58,8 +58,8 @@
                         <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paquetes <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="internet.xhtml">Internet</a></li>
-                                <li><a href="cable.xhtml">Cable</a></li>
+                                <li><a href="internet.xhtml">Internet</a></li>
+                                <li class="active"><a href="cable.xhtml">Cable</a></li>
                                 <li><a href="combos.xhtml">Combos</a></li>
                             </ul>
                         </li>

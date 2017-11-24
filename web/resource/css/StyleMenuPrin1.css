@@ -1,0 +1,199 @@
+*{
+	margin:0px;
+	padding:0px;
+	font-family: Helvetica Neue; 
+
+}
+body{
+            	    background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(../imagenes/fondo3.jpg);
+}
+
+/*titulo*/
+
+div#titulo{
+	width:100%;
+	margin-top:100px;
+        background-color: #fff;
+        border-bottom-style: groove;
+          border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 100px;
+}
+
+p#header{
+	text-align: center;
+	font-size: 2.5em;
+	color:#9a9a9a;
+}
+
+p#subheader{
+	text-align: center;
+	color:#cecece;
+	margin-top:20px;
+	font-size: 1.3em;
+}
+
+header{
+	margin:100px auto;
+	width:1000px;
+	height:230px;
+	background-color: red;
+}
+
+div.contenedor{
+	width: 200px;
+	height: 250px;
+	float:left;
+	-webkit-transition: height .4s;
+}
+
+div#uno{
+   
+
+	background-color: rgb( 5, 125, 185 );
+}
+
+div#dos{
+   
+	background-color: rgb(246, 166, 7);
+}
+
+div#tres{
+	background-color: rgb(232, 215, 10);
+}
+
+div#cuatro{
+   
+	background-color: rgb( 6, 215, 123);
+}
+
+div#cinco{
+	background-color: rgb(51, 215, 6);
+}
+
+img.icon{
+	display: block;
+	margin:50px auto;
+	background-color: rgba(255,255,255,.15);
+	width:40px;
+	padding:20px;
+	-webkit-border-radius: 50%;
+	-webkit-box-shadow: 0px 0px 0px 30px rgba(255,255,255,0);
+	-webkit-transition:box-shadow .4s;
+}
+
+p.texto{
+	font-size: 1.2em;
+	color:white;
+	text-align: center;
+	padding-top:10px;
+	opacity: .6;
+	-webkit-transition: padding-top .4s;
+         
+}
+
+div.contenedor:hover{
+	height:250px;
+}
+
+div.contenedor:hover p.texto{
+	padding-top: 20px;
+	opacity: 1;
+}
+
+div.contenedor:hover img.icon{
+	-webkit-box-shadow:0px 0px 0px 0px rgba(255,255,255,.6);
+}
+p#header1{
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+	text-align: center;
+	font-size: 1em;
+        background-color: #fff;
+        color:#005580;
+}
+.retraso-1{
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.retraso-2{
+	-webkit-animation-delay: 2s;
+	-moz-animation-delay: 2s;
+	animation-delay: 2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

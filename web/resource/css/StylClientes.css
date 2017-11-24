@@ -1,0 +1,103 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	     	    background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  background-image: url(../imagenes/fondgene2.jpg);
+}
+
+
+.content-all{
+  width: 250px;
+  height: 600px;
+  display: flex;
+  margin: auto;
+  padding: 40px;
+  background: rgba(0,0,0,0.5);
+}
+h1{
+	color: #fff;
+	text-align: center;
+}
+.form-register{
+	width: 95%;
+	max-width: 800px;
+	margin: auto;
+	
+	border-radius: 7px;
+        background-position: center center;
+  background-size: cover;
+        
+}
+/*.form-titulo{
+	background: deepskyblue;
+	color: #fff;
+	text-align: center;
+	font-weight: 100;
+	font-size: 30px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-bottom: 5px solid crimson;
+}*/
+.contenedor-inputs{
+	padding: 10px 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+input{
+	margin-bottom: 15px;
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 3px;
+	border: 1px solid darkgray;
+}
+.input-48{
+	width: 30%;
+}
+.input-100{
+	width: 100%;
+}
+.input-10{
+	width: 20%;
+}
+.btn-enviar{
+	background: crimson;
+	color: #fff;
+	margin: auto;
+	padding: 10px 40px;
+	cursor: pointer;
+	font-size: 20px;
+}
+.btn-enviar:active{
+transform: scale(1.05);
+}
+.form-link{
+	width: 100%;
+	text-align: center;
+	margin: 7px;
+	font-size: 14px;
+}
+.right{
+    float: right;
+}
+.Left{
+    float: left;
+}
+.center{
+    text-align: center;
+}
+.retraso-1{
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	animation-delay: 1s;
+}
+
+.retraso-2{
+	-webkit-animation-delay: 2s;
+	-moz-animation-delay: 2s;
+	animation-delay: 2s;
+}

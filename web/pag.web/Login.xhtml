@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link href="../resource/css/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="../resource/css/estilos.css" rel="stylesheet" type="text/css"/>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>  
+            .Bimage{
+                background-image:url(#{request.contextPath}../resource/img.web/fondgene2.jpg);
+            }
+        </style>
+    </h:head>
+    <h:body styleClass="Bimage  ">
+
+        <h:form>
+
+            <div class="content-all">
+                <h2 class="text-register animated tada">Register</h2>
+                <div class="content-login" id="form-login">
+
+                    <h3 class="animated bounceInDown">Login</h3>
+                    <p:inputText p:placeholder="Usuario"  value="#{usuariosBean.usuario.nombre}" class="animated shake"/>
+                    <p:password p:placeholder="Contraseña"  value="#{usuariosBean.usuario.contraseña}" class="animated shake"/>
+                    <p:commandButton  value="iniciar" action="#{usuariosBean.listar()}" class="animated shake retraso-1" />
+                    <p>¿Aun no te has registrado? <a href="#form-register">Registrate aquí</a></p>
+                </div>
+                <div class="content-register" id="form-register">
+                    <h3 class="animated tada ">Register</h3>
+
+                    <p:inputText p:placeholder="Nombre Completo"/>
+                    <p:inputText p:placeholder="Email"/>
+                    <p:inputText p:placeholder="Nombre Usuario"/>
+                    <p:password p:placeholder="Contraseña"/>
+                    <p:commandButton  value="Registrar" class="animated shake retraso-1" />
+                    <p>¿Ya estas registrado? <a href="#form-login" class="animated swing">Iniciar Sesión</a></p>
+                </div>
+                <h2 class="text-login animated shake">Login</h2>
+            </div>
+
+        </h:form>
+    </h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
