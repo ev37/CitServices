@@ -88,7 +88,8 @@
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
                     <h:form id="form">
-                        <center>
+                        
+                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                             <h2 title="Bajas y cancelaciones"></h2>
                             <br/>
                             <br/>
@@ -101,8 +102,8 @@
                             </h:panelGrid>
 
 
-                        </center>
-                        <div class=" col-lg-10 col-lg-offset-2" >
+                        
+                        
                             <h2 title="Servicios de Cable!"></h2>
                             <p:dataTable id="data" value="#{bajasBean.listConsultacable}" var="cable" 
                                          reflow="true" rows="5" paginator="true">
@@ -148,7 +149,7 @@
                                     <p:commandButton value="Eliminar"  actionListener="#{bajasBean.eliminar(internet)}" update="dataint"/>
                                 </p:column>
                             </p:dataTable>
-                        </div>
+                        
                     </h:form>
                 </div>
             </div>

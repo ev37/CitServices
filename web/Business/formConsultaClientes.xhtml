@@ -89,8 +89,9 @@
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
                     <h:form id="form" >
-                        <center>
+                        
                             <h2 title=" Consulta Clientes"></h2>
+                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
 
                             <h:panelGrid>
                                 <p:outputLabel value="Codigo:"/>
@@ -116,8 +117,7 @@
                                     </p:column>
                                 </p:dataTable>
                             </h:panelGrid>
-                        </center>
-                        <center>
+                        
                             <h2>Servicios Internet!</h2>
                             <h:panelGrid>
                                 <p:dataTable id="dataint" value="#{consultaClientesBean.lstClientes}" var="Clientes" reflow="true" rows="5" paginator="true">
@@ -132,25 +132,13 @@
                                     </p:column>
                                     <p:column headerText="Servicio">
                                         <p:outputLabel value="#{Clientes.tipo_servicio}"/>
-                                    </p:column>
-                                    <p:column headerText="No Contratacion">
-                                        <p:outputLabel value="#{Clientes.id_contratacion}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Nombre">
-                                        <p:outputLabel value="#{Clientes.nombre}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Nombre Paquete">
-                                        <p:outputLabel value="#{Clientes.nom_paquete}"/>
-                                    </p:column>
-                                    <p:column headerText="Servicio">
-                                        <p:outputLabel value="#{Clientes.tipo_servicio}"/>
-                                    </p:column>
+                                    </p:column>                                    
                                 </p:dataTable>
                             </h:panelGrid>
                             <p:commandButton value="Consultar"  actionListener="#{consultaClientesBean.listarCable()}" update="form" />
                             <p:commandButton value="Regresar"  />
                             <p:commandButton value="Cancelar"  />
-                        </center>
+                        
                     </h:form>
 
                     <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">     
