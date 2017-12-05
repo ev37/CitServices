@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Facelet Title</title>
         <meta charset="utf-8"/>
@@ -37,6 +39,7 @@
                 color: white
             }
         </style>
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -52,15 +55,17 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Help</a></li>
+                        <li><a href="#"> Perfil </a></li>
+
+
                     </ul>
-                    <form class="navbar-form navbar-right">
-                        <input type="text" class="form-control" placeholder="Search..."/>
-                    </form>
+                    <h:form class="navbar-form navbar-right">
+                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
+                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                    </h:form>
+
                 </div>
+
             </div>
         </nav>
 
@@ -68,116 +73,87 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><img  class="centrado" id="imagen" src="../resources/imagenes/logo cit letra blanca2.png"/></li>
-                        <li><a href="#">Reports</a></li>
-                        <li><a href="#">Analytics</a></li>
-                        <li><a href="#">Export</a></li>
+                        <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logo cit letra blanca2.png"/></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item</a></li>
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
+                        <li><a href="formCancelacionServicios.xhtml">Cancelacion Servicios</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formConsultaClientes.xhtml">Consulta Clientes</a></li>
+                    </ul>
+
+
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formRenovacionContratos.xhtml">  Renovacion Contratos</a></li>
+                    </ul>
+
+                    <ul class="nav nav-sidebar">
                         <li><a href="">Another nav item</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
                         <li><a href="">More navigation</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
-                        <li><a href="">Another nav item</a></li>
                     </ul>
                 </div>
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
                     <h:form id="form" >
-                        
-                            <h2 title=" Consulta Clientes"></h2>
-                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
 
-                            <h:panelGrid>
-                                <p:outputLabel value="Codigo:"/>
-                                <p:inputText id="Codigo" value="#{consultaClientesBean.codigo}"/>
-                                <p:commandButton class="btn-enviar"  actionListener="#{consultaClientesBean.listarDatosPersonales()}" value="Datos Interesantes del Cliente"    oncomplete="PF('dlg2').show();" update=":data2"/>
-                            </h:panelGrid>
+                        <h2 title=" Consulta Clientes"></h2>
+                        <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
 
-                            <h2> Servcios de Cable!</h2>
-                            <h:panelGrid >
-                                <p:dataTable id="data" value="#{consultaClientesBean.lstclientes}" var="paciente"
-                                             reflow="true" rows="5" paginator="true">
-                                    <p:column headerText="No.Contratacion"> 
-                                        <p:outputLabel value="#{paciente.id_contratacion}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Nombre">
-                                        <p:outputLabel value="#{paciente.nombre}"/>
-                                    </p:column>
-                                    <p:column headerText="Nombre Paquete">
-                                        <p:outputLabel value="#{paciente.nom_paquete}"/>
-                                    </p:column>
-                                    <p:column headerText="Servicio">
-                                        <p:outputLabel value="#{paciente.tipo_servicio}"/>
-                                    </p:column>
-                                </p:dataTable>
-                            </h:panelGrid>
-                        
-                            <h2>Servicios Internet!</h2>
-                            <h:panelGrid>
-                                <p:dataTable id="dataint" value="#{consultaClientesBean.lstClientes}" var="Clientes" reflow="true" rows="5" paginator="true">
-                                    <p:column headerText="No Contratacion">
-                                        <p:outputLabel value="#{Clientes.id_contratacion}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Nombre">
-                                        <p:outputLabel value="#{Clientes.nombre}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Nombre Paquete">
-                                        <p:outputLabel value="#{Clientes.nom_paquete}"/>
-                                    </p:column>
-                                    <p:column headerText="Servicio">
-                                        <p:outputLabel value="#{Clientes.tipo_servicio}"/>
-                                    </p:column>                                    
-                                </p:dataTable>
-                            </h:panelGrid>
-                            <p:commandButton value="Consultar"  actionListener="#{consultaClientesBean.listarCable()}" update="form" />
-                            <p:commandButton value="Regresar"  />
-                            <p:commandButton value="Cancelar"  />
-                        
+                        <h:panelGrid>
+                            <p:outputLabel value="Codigo:"/>
+                            <p:inputText id="Codigo" value="#{consultaClientesBean.codigo}"/>
+                           
+                        </h:panelGrid>
+
+                        <h2> Servcios de Cable!</h2>
+                        <h:panelGrid >
+                            <p:dataTable id="data" value="#{consultaClientesBean.lstclientes}" var="paciente"
+                                         reflow="true" rows="5" paginator="true">
+                                <p:column headerText="No.Contratacion"> 
+                                    <p:outputLabel value="#{paciente.id_contratacion}"/>
+                                </p:column>                        
+                                <p:column headerText="Nombre">
+                                    <p:outputLabel value="#{paciente.nombre}"/>
+                                </p:column>
+                                <p:column headerText="Nombre Paquete">
+                                    <p:outputLabel value="#{paciente.nom_paquete}"/>
+                                </p:column>
+                                <p:column headerText="Servicio">
+                                    <p:outputLabel value="#{paciente.tipo_servicio}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </h:panelGrid>
+
+                        <h2>Servicios Internet!</h2>
+                        <h:panelGrid>
+                            <p:dataTable id="dataint" value="#{consultaClientesBean.lstClientes}" var="Clientes" reflow="true" rows="5" paginator="true">
+                                <p:column headerText="No Contratacion">
+                                    <p:outputLabel value="#{Clientes.id_contratacion}"/>
+                                </p:column>                        
+                                <p:column headerText="Nombre">
+                                    <p:outputLabel value="#{Clientes.nombre}"/>
+                                </p:column>                        
+                                <p:column headerText="Nombre Paquete">
+                                    <p:outputLabel value="#{Clientes.nom_paquete}"/>
+                                </p:column>
+                                <p:column headerText="Servicio">
+                                    <p:outputLabel value="#{Clientes.tipo_servicio}"/>
+                                </p:column>                                    
+                            </p:dataTable>
+                        </h:panelGrid>
+                        <p:commandButton value="Consultar"  actionListener="#{consultaClientesBean.listarCable()}" update="form" />
+                        <p:commandButton value="Regresar"  />
+                        <p:commandButton value="Cancelar"  />
+
                     </h:form>
-
-                    <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">     
-                        <p:dataTable id="data2" value="#{consultaClientesBean.lstclient}" var="cliente"
-                                     reflow="true" rows="5" paginator="true">                                      
-                            <p:column headerText="Nombre">
-                                <p:outputLabel value="#{cliente.nombre}"/>
-                            </p:column>
-
-                            <p:column headerText="Apellido">
-                                <p:outputLabel value="#{cliente.apellido}"/>
-                            </p:column>
-                            <p:column headerText="Direccion">
-                                <p:outputLabel value="#{cliente.direccion}"/>          
-                            </p:column>
-                            <p:column headerText="DPI">
-                                <p:outputLabel value="#{cliente.dpi}"/>          
-                            </p:column>
-                            <p:column headerText="Nit">
-                                <p:outputLabel value="#{cliente.nit}"/>          
-                            </p:column>
-                            <p:column headerText="Nombre">
-                                <p:outputLabel value="#{cliente.nombre}"/>
-                            </p:column>
-
-                            <p:column headerText="Apellido">
-                                <p:outputLabel value="#{cliente.apellido}"/>
-                            </p:column>
-                            <p:column headerText="Direccion">
-                                <p:outputLabel value="#{cliente.direccion}"/>          
-                            </p:column>
-                            <p:column headerText="DPI">
-                                <p:outputLabel value="#{cliente.dpi}"/>          
-                            </p:column>
-                            <p:column headerText="Nit">
-                                <p:outputLabel value="#{cliente.nit}"/>          
-                            </p:column>
-                        </p:dataTable>
-                    </p:dialog>                                                         
                 </div>
             </div>
         </div>

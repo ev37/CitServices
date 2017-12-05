@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -36,6 +38,7 @@
                 color: white
             }
         </style>
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -47,18 +50,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="#">CIT SERVICES</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Help</a></li>
+                    <ul class="nav navbar-nav navbar-right">                        
+                        
+                        <li><a href="#"> Perfil </a></li>
+                        
                     </ul>
-                    <form class="navbar-form navbar-right">
-                        <input type="text" class="form-control" placeholder="Search..."/>
-                    </form>
+                    <h:form class="navbar-form navbar-right">
+                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
+                         <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                    </h:form>
                 </div>
             </div>
         </nav>
@@ -67,22 +70,31 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><img  class="centrado" id="imagen" src="../resources/imagenes/logo cit letra blanca2.png"/></li>
-                        <li><a href="#">Reports</a></li>
-                        <li><a href="#">Analytics</a></li>
-                        <li><a href="#">Export</a></li>
+                        <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logo cit letra blanca2.png"/></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item</a></li>
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
+                        <li><a href="formCancelacionServicios.xhtml">Cancelacion Servicios</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formConsultaClientes.xhtml">Consulta Clientes</a></li>
+                    </ul>
+
+
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formRenovacionContratos.xhtml">  Renovacion Contratos</a></li>
+                    </ul>
+
+                    <ul class="nav nav-sidebar">
                         <li><a href="">Another nav item</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
                         <li><a href="">More navigation</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
-                        <li><a href="">Another nav item</a></li>
                     </ul>
                 </div>
 
@@ -90,14 +102,12 @@
                     <h:form id="form">
                         
                             <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                            <h2 title="Bajas y cancelaciones"></h2>
-                            <br/>
-                            <br/>
-                            <h:panelGrid columns="2">
+                            
+                            
+                            
+                            <h:panelGrid>
                                 <p:outputLabel value="Codigo Del Cliente"/>
-                                <p:inputText value="#{bajasBean.codigo}" />
-
-                                <p:column/>
+                                <p:inputText value="#{bajasBean.codigo}" />                                
                                 <p:commandButton value="Buscar" action="#{bajasBean.listarTodo()}" update="form" />
                             </h:panelGrid>
 

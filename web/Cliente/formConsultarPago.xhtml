@@ -16,7 +16,7 @@
         <link rel="icon" href="../../favicon.ico"></link>
         <!-- Bootstrap core CSS -->
         <link href="Resources/dist/css/bootstrap.min.css" rel="stylesheet"/>
-       <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
         <f:event type="preRenderView" listener="#{nuevaTablaBean.listarTabla()}"/>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href=" Resources/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
@@ -53,18 +53,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="#">CIT SERVICES</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Help</a></li>
+                        <li><a href="#"> Perfil </a></li>
                     </ul>
-                    <form class="navbar-form navbar-right">
-                        <input type="text" class="form-control" placeholder="Search..."/>
-                    </form>
+                    <h:form class="navbar-form navbar-right">
+                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
+                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                    </h:form>
                 </div>
             </div>
         </nav>
@@ -73,22 +71,25 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><img  class="centrado" id="imagen" src="../resources/imagenes/logo cit letra blanca2.png"/></li>
-                        <li><a href="#">Reports</a></li>
-                        <li><a href="#">Analytics</a></li>
-                        <li><a href="#">Export</a></li>
+                        <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logo cit letra blanca2.png"/></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item</a></li>
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
-                        <li><a href="">Another nav item</a></li>
+                        <li><a href="formCobertura">Cancelacion Servicios</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formConsultarPago.xhtml">Consulta Clientes</a></li>
+                    </ul>
+
+
+                    <ul class="nav nav-sidebar">
+                        <li><a href="fromModificarDato.xhtml">Ingreso de Persona</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formReclamo.xhtml">Ingreso de Clientes</a></li>
+                    </ul>
+
+                    <ul class="nav nav-sidebar">
                         <li><a href="">More navigation</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
-                        <li><a href="">Another nav item</a></li>
                     </ul>
                 </div>
 
@@ -112,7 +113,7 @@
                             <br/>
                             <br/>
                             <br/>
-                            
+
                             <h:panelGrid >
                                 <p:dataTable id="data" value="#{nuevaTablaBean.lisTabla}" var="tabListar"
                                              reflow="true" rows="5" paginator="true">

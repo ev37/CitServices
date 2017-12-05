@@ -21,11 +21,11 @@ public class DAO
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tvinter?user=walter&password=1234");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tvinter?user=jaeer&password=temporal");
             System.out.println("COnectado");
         }catch(Exception e)
         {
-            throw e;
+            System.out.println("Error al conectar base de datos");;
         }
     }
     

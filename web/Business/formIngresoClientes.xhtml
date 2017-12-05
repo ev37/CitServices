@@ -39,6 +39,7 @@
                 color: white
             }
         </style>
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
         <f:event type="preRenderView" listener="#{clientesBean.listartodosId()}"/>
         <f:event type="preRenderView" listener="#{clientesBean.listarPersona()}"/>
         <script type="text/javascript">
@@ -61,14 +62,14 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Help</a></li>
+                        
+                        <li><a href="#"> Perfil </a></li>
+                        
                     </ul>
-                    <form class="navbar-form navbar-right">
-                        <input type="text" class="form-control" placeholder="Search..."/>
-                    </form>
+                    <h:form class="navbar-form navbar-right">
+                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
+                         <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                    </h:form>
                 </div>
             </div>
         </nav>
@@ -77,22 +78,31 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><img  class="centrado" id="imagen" src="../resources/imagenes/logo cit letra blanca2.png"/></li>
-                        <li><a href="#">Reports</a></li>
-                        <li><a href="#">Analytics</a></li>
-                        <li><a href="#">Export</a></li>
+                        <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logo cit letra blanca2.png"/></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item</a></li>
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
+                        <li><a href="formCancelacionServicios.xhtml">Cancelacion Servicios</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formConsultaClientes.xhtml">Consulta Clientes</a></li>
+                    </ul>
+
+
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formRenovacionContratos.xhtml">  Renovacion Contratos</a></li>
+                    </ul>
+
+                    <ul class="nav nav-sidebar">
                         <li><a href="">Another nav item</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
                         <li><a href="">More navigation</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="">Nav item again</a></li>
-                        <li><a href="">One more nav</a></li>
-                        <li><a href="">Another nav item</a></li>
                     </ul>
                 </div>
 

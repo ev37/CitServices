@@ -2,7 +2,6 @@
 package beanCliente;
 
 
-import Modelo.*;
 import daoCliente.reclamoDao;
 import java.util.ArrayList;
 import java.util.List;

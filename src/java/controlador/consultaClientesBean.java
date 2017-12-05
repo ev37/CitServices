@@ -82,11 +82,12 @@ public class consultaClientesBean {
     consultaClientesDao dao = new consultaClientesDao();
 
     try {
+        System.out.println("codigo recibido"+codigo);
       lstclientes = dao.listar(codigo);
       lstClientes = dao.listarInternet(codigo);
 
     } catch (Exception e) {
-      throw e;
+        System.out.println("Error al listar servicios"+e);
     }
   }
 
@@ -96,7 +97,7 @@ public class consultaClientesBean {
     try {
       lstclient = dao.listarCliente(codigo);
     } catch (Exception e) {
-      throw e;
+        System.out.println("Error al listar los datos personales"+e);
     }
   }
   
@@ -106,7 +107,7 @@ public class consultaClientesBean {
     try {
       lstclient = dao.listarCliente(codigo);
     } catch (Exception e) {
-      throw e;
+        System.out.println("Error al listar Personas"+e);
     } 
   }
 }
