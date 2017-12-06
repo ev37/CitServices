@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Facelet Title</title>
@@ -36,10 +36,17 @@
                 border-style: none !important
             }
             .activo{
-                background-color: wheat
+                color: white
             }
         </style>
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
+        <f:event type="preRenderView" listener="#{clientesBean.listartodosId()}"/>
+        <f:event type="preRenderView" listener="#{clientesBean.listarPersona()}"/>
+        <script type="text/javascript">
+            function limpiarForm() {
+                document.getElementById("frm").reset();
+            }
+        </script>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -55,17 +62,15 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        
                         <li><a href="#"> Perfil </a></li>
-
-
+                        
                     </ul>
                     <h:form class="navbar-form navbar-right">
                         <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                         <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
                     </h:form>
-
                 </div>
-
             </div>
         </nav>
 
@@ -75,81 +80,66 @@
                     <ul class="nav nav-sidebar">
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
-                    <ul class="nav nav-sidebar activo">
-                        <li><a href="formConsultaClientes.xhtml">Consulta General</a></li>
-                        
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formCancelacionServicios.xhtml">Cancelacion Servicios</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formConsultarPago.xhtml">Consulta de Pagos</a></li>
+                        <li><a href="formConsultaClientes.xhtml">Consulta Clientes</a></li>
                     </ul>
 
 
                     <ul class="nav nav-sidebar">
-                        <li><a href="fromModificarDato.xhtml">Modificar Datos</a></li>
+                        <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formReclamo.xhtml">Reclamo de Servicio</a></li>
+                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formCobertura.xhtml">Coberturas</a></li>
+                        <li><a href="formRenovacionContratos.xhtml">  Renovacion Contratos</a></li>
                     </ul>
 
-                   
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Another nav item</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">More navigation</a></li>
+                    </ul>
                 </div>
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
-                    <h:form id="form" >
-
-                        <h2 title=" Consulta Clientes"></h2>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">  
+                    <center>
+                        <h2>Ingreso De Clientes</h2>
                         <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
+                        <h:form id="frm">
+                            <h:panelGrid columns="2">                    
+                                <p:outputLabel value="Nombre:"/>
+                                <b:selectOneMenu value="#{clientesBean.cliente.id_cliente}"  required="true"  style="width: 150px">
+                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                    <f:selectItems value="#{clientesBean.lstPersona}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
+                                </b:selectOneMenu>
+                                <p:outputLabel value="Categoria:"/>
+                                <b:selectOneMenu value="#{clientesBean.cliente.id_categoria}"  required="true" style="width: 150px" >
+                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                    <f:selectItems value="#{clientesBean.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.id_categoria}" />              
+                                </b:selectOneMenu>
+                                <p:outputLabel value="Estado:"/>
+                                <b:selectOneMenu value="#{clientesBean.cliente.id_estado}"  required="true" style="width: 150px" >
+                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                    <f:selectItems value="#{clientesBean.lstEstado}" var="es" itemLabel="#{es.nombre}" itemValue="#{es.codestado}" />              
+                                </b:selectOneMenu>
+                                <p:outputLabel value="Tipo de cliente:"/>
+                                <b:selectOneMenu value="#{clientesBean.cliente.id_tipo_cliente}"  required="true"  style="width: 150px">
+                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                    <f:selectItems value="#{clientesBean.lstTipoCliente}" var="tip" itemLabel="#{tip.nombre}" itemValue="#{tip.id_tipo_cliente}" />              
+                                </b:selectOneMenu>
+                                <p:outputLabel value="Email:"/>
+                                <p:inputText value="#{clientesBean.cliente.email}"/>
 
-                        <h:panelGrid>
-                            <p:outputLabel value="Codigo:"/>
-                            <p:inputText id="Codigo" value="#{consultaClientesBean.codigo}"/>
-                           
-                        </h:panelGrid>
-
-                        <h2> Servcios de Cable!</h2>
-                        <h:panelGrid >
-                            <p:dataTable id="data" value="#{consultaClientesBean.lstclientes}" var="paciente"
-                                         reflow="true" rows="5" paginator="true">
-                                <p:column headerText="No.Contratacion"> 
-                                    <p:outputLabel value="#{paciente.id_contratacion}"/>
-                                </p:column>                        
-                                <p:column headerText="Nombre">
-                                    <p:outputLabel value="#{paciente.nombre}"/>
-                                </p:column>
-                                <p:column headerText="Nombre Paquete">
-                                    <p:outputLabel value="#{paciente.nom_paquete}"/>
-                                </p:column>
-                                <p:column headerText="Servicio">
-                                    <p:outputLabel value="#{paciente.tipo_servicio}"/>
-                                </p:column>
-                            </p:dataTable>
-                        </h:panelGrid>
-
-                        <h2>Servicios Internet!</h2>
-                        <h:panelGrid>
-                            <p:dataTable id="dataint" value="#{consultaClientesBean.lstClientes}" var="Clientes" reflow="true" rows="5" paginator="true">
-                                <p:column headerText="No Contratacion">
-                                    <p:outputLabel value="#{Clientes.id_contratacion}"/>
-                                </p:column>                        
-                                <p:column headerText="Nombre">
-                                    <p:outputLabel value="#{Clientes.nombre}"/>
-                                </p:column>                        
-                                <p:column headerText="Nombre Paquete">
-                                    <p:outputLabel value="#{Clientes.nom_paquete}"/>
-                                </p:column>
-                                <p:column headerText="Servicio">
-                                    <p:outputLabel value="#{Clientes.tipo_servicio}"/>
-                                </p:column>                                    
-                            </p:dataTable>
-                        </h:panelGrid>
-                        <p:commandButton value="Consultar"  actionListener="#{consultaClientesBean.listarCable()}" update="form" />
-                        <p:commandButton value="Regresar"  />
-                        <p:commandButton value="Cancelar"  />
-
-                    </h:form>
+                            </h:panelGrid>
+                            <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBean.registrarClientes()}"/>
+                            <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                        </h:form>  
+                    </center>
                 </div>
             </div>
         </div>

@@ -16,8 +16,7 @@
         <link rel="icon" href="../../favicon.ico"></link>
         <!-- Bootstrap core CSS -->
         <link href="Resources/dist/css/bootstrap.min.css" rel="stylesheet"/>
-        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
-        <f:event type="preRenderView" listener="#{nuevaTablaBean.listarTabla()}"/>
+
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href=" Resources/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
 
@@ -27,6 +26,7 @@
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="Resources/assets/js/ie-emulation-modes-warning.js"></script>
+        <f:event type="preRenderView" listener="#{reclamoBean.listarTipoReclamo()}"/>
         <style type="text/css">
             .centrado{
                 margin:10px auto;
@@ -37,11 +37,9 @@
                 border-style: none !important
             }
             .activo{
-                background-color: wheat
+                color: white
             }
         </style>
-
-
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -71,71 +69,55 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
-
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formConsultaClientes.xhtml">Consulta General</a></li>
                         
                     </ul>
-                    <ul class="nav nav-sidebar activo">
+                    <ul class="nav nav-sidebar">
                         <li><a href="formConsultarPago.xhtml">Consulta de Pagos</a></li>
                     </ul>
 
 
                     <ul class="nav nav-sidebar">
-                        <li><a href="formModificarDato.xhtml">Modificar Datos</a></li>
+                        <li><a href="fromModificarDato.xhtml">Modificar Datos</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formReclamo.xhtml">Reclamo de Servicio</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formCobertura.xhtml">Coberturas</a></li>
                     </ul>
 
                    
                 </div>
 
                 <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main"> 
-                    <h2 title=" Consulta de Coberturas"></h2>
-                    <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                    <b:row>
-                        <b:column col-md="11">
+                    <center>
+                        <h:panelGrid>
+                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
+                            <h2 title="Reclamo">Reclamo</h2>
+                        </h:panelGrid>
+                        <br/>
+                        <br/>
+                        <h:panelGrid class="center-block">
+                            <b:form horizontal="true">
+                                <b:row>
+                                    <b:inputText value="#{reclamoBean.rec.idCliente}" required="true" colMd="7" labelColMd="5" label="id cliente"/>
+                                    <b:selectOneMenu value="#{reclamoBean.rec.idTipoReclamo}" id="idTipo"  colMd="7" labelColMd="5" label="Tipo de Reclamo:">
+                                        <f:selectItems var="tipo2" value="#{reclamoBean.listReclamo}"  itemLabel="#{tipo2.tipoReclamo}" itemValue="#{tipo2.idTipoReclamo}"/>
+                                    </b:selectOneMenu>
 
-                            <b:form inline="true">
-                                <br/>
-                                <br/>
-                                <b:row styleClass="show-grid">
-                                    <b:column col-xs="3" col-sm="6" col-md="6">
-                                        <center>
-                                            <b:inputText disabled="true" label="id cliente" value="#{nuevaTablaBean.plantBean.usua.id_usuario}"/>
-                                        </center>
-                                    </b:column>
                                 </b:row>
-                            </b:form>
-                            <br/>
-                            <br/>
-                            <br/>
-
-                            <h:panelGrid >
-                                <p:dataTable id="data" value="#{nuevaTablaBean.lisTabla}" var="tabListar"
-                                             reflow="true" rows="5" paginator="true">
-                                    <p:column headerText="Servicio"> 
-                                        <p:outputLabel value="#{tabListar.nombreTipoServicio}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Descripcion de Servicio">
-                                        <p:outputLabel value="#{tabListar.nombrePaquete}"/>
-                                    </p:column>
-                                    <p:column headerText="Monto">
-                                        <p:outputLabel value="#{tabListar.monto}"/>
-                                    </p:column>
-                                </p:dataTable>
-                            </h:panelGrid>
-                        </b:column>
-                    </b:row>
-
-
+                                <b:row>
+                                    <b:inputText value="#{reclamoBean.rec.idEstado}" required="true" colMd="7" labelColMd="5" label="Id Estado"/>
+                                    <b:inputTextarea placeholder="Escribe......" value="#{reclamoBean.rec.descripcion}"></b:inputTextarea>
+                                </b:row>
+                                <b:row>
+                                    <b:commandButton value="Enviar" span="5" actionListener="#{reclamoBean.ingresarReclamo()}"/>
+                                    <b:messages />
+                                </b:row>
+                            </b:form>   
+                        </h:panelGrid>
+                    </center>
                 </div>
             </div>
         </div>

@@ -75,7 +75,7 @@ public class UsuariosBean implements Serializable {
 
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("sesion", usuarioSesion);
 
-                if (usuarioSesion.getTipo_usuario() == 2) {
+                if (usuarioSesion.getTipo_usuario() == 1) {
                     System.out.println(usuarioSesion.getNombre());
                     context.getExternalContext().redirect("../Business/formRenovacionContratos.xhtml");
                 } else if (usuarioSesion.getTipo_usuario() == 4) {

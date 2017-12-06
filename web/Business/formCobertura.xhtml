@@ -16,8 +16,7 @@
         <link rel="icon" href="../../favicon.ico"></link>
         <!-- Bootstrap core CSS -->
         <link href="Resources/dist/css/bootstrap.min.css" rel="stylesheet"/>
-        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
-        <f:event type="preRenderView" listener="#{nuevaTablaBean.listarTabla()}"/>
+
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href=" Resources/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
 
@@ -27,6 +26,23 @@
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="Resources/assets/js/ie-emulation-modes-warning.js"></script>
+        <style type="text/css" >
+            .google-maps {
+                position: relative;
+                padding-bottom: 75%;
+                height: 0;
+                overflow: hidden;
+            }
+            .google-maps iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+        </style>
+
+
         <style type="text/css">
             .centrado{
                 margin:10px auto;
@@ -37,11 +53,15 @@
                 border-style: none !important
             }
             .activo{
-                background-color: wheat
+                color: white
             }
         </style>
-
-
+        <script type="text/javascript">
+            $(window).load(function () {
+                $('.modalPseudoClass').modal('show');
+            });
+        </script>
+        <f:event type="preRenderView" listener="#{coberturaBean.listarDepartamento()}"/>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -53,7 +73,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">CIT SERVICES</a>
+                    <a class="navbar-brand" href="#">CIT SERVICIES</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -71,70 +91,65 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
-
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formConsultaClientes.xhtml">Consulta General</a></li>
                         
                     </ul>
-                    <ul class="nav nav-sidebar activo">
+                    <ul class="nav nav-sidebar">
                         <li><a href="formConsultarPago.xhtml">Consulta de Pagos</a></li>
                     </ul>
 
 
                     <ul class="nav nav-sidebar">
-                        <li><a href="formModificarDato.xhtml">Modificar Datos</a></li>
+                        <li><a href="fromModificarDato.xhtml">Modificar Datos</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formReclamo.xhtml">Reclamo de Servicio</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formCobertura.xhtml">Coberturas</a></li>
                     </ul>
 
                    
                 </div>
 
                 <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main"> 
-                    <h2 title=" Consulta de Coberturas"></h2>
-                    <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                    <b:row>
-                        <b:column col-md="11">
+                    <center>
+                        <b:form id="form" horizontal="true">
 
-                            <b:form inline="true">
-                                <br/>
-                                <br/>
-                                <b:row styleClass="show-grid">
-                                    <b:column col-xs="3" col-sm="6" col-md="6">
-                                        <center>
-                                            <b:inputText disabled="true" label="id cliente" value="#{nuevaTablaBean.plantBean.usua.id_usuario}"/>
-                                        </center>
-                                    </b:column>
-                                </b:row>
-                            </b:form>
-                            <br/>
-                            <br/>
-                            <br/>
+                            <h2 title=" Consulta de Coberturas"></h2>
+                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
 
-                            <h:panelGrid >
-                                <p:dataTable id="data" value="#{nuevaTablaBean.lisTabla}" var="tabListar"
-                                             reflow="true" rows="5" paginator="true">
-                                    <p:column headerText="Servicio"> 
-                                        <p:outputLabel value="#{tabListar.nombreTipoServicio}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Descripcion de Servicio">
-                                        <p:outputLabel value="#{tabListar.nombrePaquete}"/>
-                                    </p:column>
-                                    <p:column headerText="Monto">
-                                        <p:outputLabel value="#{tabListar.monto}"/>
-                                    </p:column>
-                                </p:dataTable>
+                            <div class="google-maps">
+                                <iframe  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25968.574617858027!2d-90.50608717598952!3d14.641647912277447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1506015707453" width="600" height="450" frameborder="0" style="border:0"  ></iframe>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <b:modal id="amodal2" title="Cobertura" styleClass="modalPseudoClass2">
+
+                                <p align="center">
+                                    <b:formGroup>
+                                        <b:selectOneMenu   label="Departamento: " labelColMd="3" id="dep" value="#{coberturaBean.tabCob2.idDepartamento}" update="muni" onchange="ajax:coberturaBean.listar()" colMd="6" required="true">
+                                            <f:selectItems var="dep2" value="#{coberturaBean.lisTabCob2}" itemValue="#{dep2.idDepartamento}" itemLabel="#{dep2.departamento}" />
+                                        </b:selectOneMenu>
+                                    </b:formGroup>
+
+                                    <b:formGroup id="idForm1">
+                                        <b:selectOneMenu   label="Municipio: " labelColMd="3" id="muni" value="#{coberturaBean.tabCob.idMunicipio}" colMd="6">
+                                            <f:selectItems var="muni2" value="#{coberturaBean.lisTabCob}" itemValue="#{muni2.idMunicipio}" itemLabel="#{muni2.municipio}"/>
+                                        </b:selectOneMenu>
+                                    </b:formGroup>
+                                </p>
+                                <f:facet name="footer">
+                                    <b:button value="Cerrar" dismiss="modal" />
+                                    <b:button value="Ok" look="primary" dismiss="modal" />
+                                </f:facet>
+                            </b:modal>
+                            <h:panelGrid>
+                                <b:button value="Cobertura" iconAwesome="globe" look="primary" onclick="$('.modalPseudoClass2').modal()" />
                             </h:panelGrid>
-                        </b:column>
-                    </b:row>
-
+                        </b:form>
+                    </center>
 
                 </div>
             </div>
@@ -152,9 +167,9 @@
         <script src="Resources/assets/js/ie10-viewport-bug-workaround.js"></script>
         <!--Script del modal-->
         <script type="text/javascript">
-            $(window).load(function () {
-                $('.modalPseudoClass').modal('show');
-            });
+                                    $(window).load(function () {
+                                        $('.modalPseudoClass').modal('show');
+                                    });
         </script> 
     </h:body>
 </html>

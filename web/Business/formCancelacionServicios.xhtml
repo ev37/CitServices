@@ -54,13 +54,13 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">                        
-                        
+
                         <li><a href="#"> Perfil </a></li>
-                        
+
                     </ul>
                     <h:form class="navbar-form navbar-right">
                         <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                         <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
                     </h:form>
                 </div>
             </div>
@@ -70,96 +70,103 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-                        <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
+                        <li class="active"><img class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formCancelacionServicios.xhtml">Cancelacion Servicios</a></li>
+                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formConsultaClientes.xhtml">Consulta Clientes</a></li>
+                        <li><a href="formConsultaClientes.xhtml">Cancelación de Servicios</a></li>
                     </ul>
 
 
                     <ul class="nav nav-sidebar">
                         <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
-                    </ul>
+
                     <ul class="nav nav-sidebar">
                         <li><a href="formRenovacionContratos.xhtml">  Renovacion Contratos</a></li>
                     </ul>
 
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Another nav item</a></li>
+                        <li><a href="">Consulta de Pagos</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">More navigation</a></li>
+                        <li><a href="">Modificar Datos Cliente</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Consulta General</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Reclamos</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Cobertura</a></li>
                     </ul>
                 </div>
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
                     <h:form id="form">
-                        
-                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                            
-                            
-                            
-                            <h:panelGrid>
-                                <p:outputLabel value="Codigo Del Cliente"/>
-                                <p:inputText value="#{bajasBean.codigo}" />                                
-                                <p:commandButton value="Buscar" action="#{bajasBean.listarTodo()}" update="form" />
-                            </h:panelGrid>
+
+                        <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
 
 
-                        
-                        
-                            <h2 title="Servicios de Cable!"></h2>
-                            <p:dataTable id="data" value="#{bajasBean.listConsultacable}" var="cable" 
-                                         reflow="true" rows="5" paginator="true">
-                                <p:column headerText="No Contratacion">
-                                    <p:outputLabel   value="#{cable.id_contratacion}"  />
-                                </p:column>                    
-                                <p:column headerText="Nombre"> 
-                                    <p:outputLabel value="#{cable.nombre}" />
-                                </p:column>                    
-                                <p:column headerText="Nombre Paquete">
-                                    <p:outputLabel value="#{cable.nom_paquete}" />
-                                </p:column>
-                                <p:column headerText="Servicio">
-                                    <p:outputLabel value="#{cable.tipo_servicio}" />
-                                </p:column>
 
-                                <p:column>
-
-                                    <p:commandButton value="Eliminar"  actionListener="#{bajasBean.eliminar(cable)}" update="data"/>
-                                </p:column>
-
-                            </p:dataTable>
+                        <h:panelGrid>
+                            <p:outputLabel value="Codigo Del Cliente"/>
+                            <p:inputText value="#{bajasBean.codigo}" />                                
+                            <p:commandButton value="Buscar" action="#{bajasBean.listarTodo()}" update="form" />
+                        </h:panelGrid>
 
 
-                            <h2 title="Servicios Internet"></h2>
-                            <p:dataTable id="dataint" value="#{bajasBean.listConsultaint}" var="internet"
-                                         reflow="true" rows="5" paginator="true">
-                                <p:column headerText="No.Contratacion"> 
-                                    <p:outputLabel value="#{internet.id_contratacion}" />
-                                </p:column>
 
-                                <p:column headerText="Nombre">
-                                    <p:outputLabel value="#{internet.nombre}" />
-                                </p:column>
 
-                                <p:column headerText="Nombre Paquete">
-                                    <p:outputLabel value="#{internet.nom_paquete}" />
-                                </p:column>
-                                <p:column headerText="Servicio">
-                                    <p:outputLabel value="#{internet.tipo_servicio}" />
-                                </p:column>
-                                <p:column >
-                                    <p:commandButton value="Eliminar"  actionListener="#{bajasBean.eliminar(internet)}" update="dataint"/>
-                                </p:column>
-                            </p:dataTable>
-                        
+                        <h2 title="Servicios de Cable!"></h2>
+                        <p:dataTable id="data" value="#{bajasBean.listConsultacable}" var="cable" 
+                                     reflow="true" rows="5" paginator="true">
+                            <p:column headerText="No Contratacion">
+                                <p:outputLabel   value="#{cable.id_contratacion}"  />
+                            </p:column>                    
+                            <p:column headerText="Nombre"> 
+                                <p:outputLabel value="#{cable.nombre}" />
+                            </p:column>                    
+                            <p:column headerText="Nombre Paquete">
+                                <p:outputLabel value="#{cable.nom_paquete}" />
+                            </p:column>
+                            <p:column headerText="Servicio">
+                                <p:outputLabel value="#{cable.tipo_servicio}" />
+                            </p:column>
+
+                            <p:column>
+
+                                <p:commandButton value="Eliminar"  actionListener="#{bajasBean.eliminar(cable)}" update="data"/>
+                            </p:column>
+
+                        </p:dataTable>
+
+
+                        <h2 title="Servicios Internet"></h2>
+                        <p:dataTable id="dataint" value="#{bajasBean.listConsultaint}" var="internet"
+                                     reflow="true" rows="5" paginator="true">
+                            <p:column headerText="No.Contratacion"> 
+                                <p:outputLabel value="#{internet.id_contratacion}" />
+                            </p:column>
+
+                            <p:column headerText="Nombre">
+                                <p:outputLabel value="#{internet.nombre}" />
+                            </p:column>
+
+                            <p:column headerText="Nombre Paquete">
+                                <p:outputLabel value="#{internet.nom_paquete}" />
+                            </p:column>
+                            <p:column headerText="Servicio">
+                                <p:outputLabel value="#{internet.tipo_servicio}" />
+                            </p:column>
+                            <p:column >
+                                <p:commandButton value="Eliminar"  actionListener="#{bajasBean.eliminar(internet)}" update="dataint"/>
+                            </p:column>
+                        </p:dataTable>
+
                     </h:form>
                 </div>
             </div>

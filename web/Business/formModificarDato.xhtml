@@ -16,8 +16,8 @@
         <link rel="icon" href="../../favicon.ico"></link>
         <!-- Bootstrap core CSS -->
         <link href="Resources/dist/css/bootstrap.min.css" rel="stylesheet"/>
-        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
-        <f:event type="preRenderView" listener="#{nuevaTablaBean.listarTabla()}"/>
+        <!--<f:event type="preRenderView" listener="#"/>-->
+
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href=" Resources/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
 
@@ -37,7 +37,7 @@
                 border-style: none !important
             }
             .activo{
-                background-color: wheat
+                color: white
             }
         </style>
 
@@ -71,27 +71,22 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar">
-
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
-
                     </ul>
-                    <ul class="nav nav-sidebar">
+                   <ul class="nav nav-sidebar">
                         <li><a href="formConsultaClientes.xhtml">Consulta General</a></li>
                         
                     </ul>
-                    <ul class="nav nav-sidebar activo">
+                    <ul class="nav nav-sidebar">
                         <li><a href="formConsultarPago.xhtml">Consulta de Pagos</a></li>
                     </ul>
 
 
                     <ul class="nav nav-sidebar">
-                        <li><a href="formModificarDato.xhtml">Modificar Datos</a></li>
+                        <li><a href="fromModificarDato.xhtml">Modificar Datos</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formReclamo.xhtml">Reclamo de Servicio</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formCobertura.xhtml">Coberturas</a></li>
                     </ul>
 
                    
@@ -100,42 +95,19 @@
                 <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main"> 
                     <h2 title=" Consulta de Coberturas"></h2>
                     <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                    <b:row>
-                        <b:column col-md="11">
+                    <center>
+                        <b:form horizontal="true">
+                            <h:panelGrid>
+                                <b:inputText id="idCliente" value="#{modificarClienteBean.clie.idCliente}" label="ID Cliente: " colMd="7" labelColMd="5" placeholder="ID Cliente"/>
 
-                            <b:form inline="true">
-                                <br/>
-                                <br/>
-                                <b:row styleClass="show-grid">
-                                    <b:column col-xs="3" col-sm="6" col-md="6">
-                                        <center>
-                                            <b:inputText disabled="true" label="id cliente" value="#{nuevaTablaBean.plantBean.usua.id_usuario}"/>
-                                        </center>
-                                    </b:column>
-                                </b:row>
-                            </b:form>
-                            <br/>
-                            <br/>
-                            <br/>
+                                <b:inputText id="idDireccion" value="#{modificarClienteBean.clie.telefono_movil}" label="Direccion:" colMd="7" labelColMd="5" placeholder="Direccion"/>
 
-                            <h:panelGrid >
-                                <p:dataTable id="data" value="#{nuevaTablaBean.lisTabla}" var="tabListar"
-                                             reflow="true" rows="5" paginator="true">
-                                    <p:column headerText="Servicio"> 
-                                        <p:outputLabel value="#{tabListar.nombreTipoServicio}"/>
-                                    </p:column>                        
-                                    <p:column headerText="Descripcion de Servicio">
-                                        <p:outputLabel value="#{tabListar.nombrePaquete}"/>
-                                    </p:column>
-                                    <p:column headerText="Monto">
-                                        <p:outputLabel value="#{tabListar.monto}"/>
-                                    </p:column>
-                                </p:dataTable>
+                                <b:inputText id="idTelefono" value="#{modificarClienteBean.clie.telefono_casa}" label="Telefono:" placeholder="Telefono Movil" colMd="7" labelColMd="5"/>
+                                <br/>
+                                <b:commandButton update="@form" value="modificar" actionListener="#{modificarClienteBean.modificar()}"/>
                             </h:panelGrid>
-                        </b:column>
-                    </b:row>
-
-
+                        </b:form>
+                    </center>
                 </div>
             </div>
         </div>
