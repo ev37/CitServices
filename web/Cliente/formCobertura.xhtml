@@ -54,7 +54,12 @@
             }
             .activo{
                 background-color: wheat
-               
+
+            }
+            
+            .activo2{
+                background-color: palevioletred
+
             }
         </style>
         <script type="text/javascript">
@@ -69,6 +74,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -76,38 +82,23 @@
                     </button>
                     <a class="navbar-brand" href="#">CIT SERVICIES</a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <h:form class="navbar-form navbar-right">
-                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                      
-                    </h:form>
-                    
-                    <ul class="nav navbar-nav navbar-right">
 
-                        <li><a href="formConsultaClientes.xhtml">Consulta General</a></li>
-                        <li><a href="formConsultarPago.xhtml">Consulta de Pagos</a></li>
-                        <li><a href="formModificarDato.xhtml">Modificar Datos</a></li>
-                        <li><a href="formReclamo.xhtml">Reclamo de Servicio</a></li>
-                        <li><a href="formCobertura.xhtml">Coberturas</a></li>
-                    </ul>
-                    <br/>
-                    <h:form class="navbar-form navbar-right">
+               
+                       
 
-                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
-                    </h:form>
+
                 </div>
-            </div>
         </nav>
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+                <div id="navbar" class=" col-sm-3 col-md-2 sidebar  collapse">
                     <ul class="nav nav-sidebar">
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formConsultaClientes.xhtml">Consulta General</a></li>
-                        
+
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formConsultarPago.xhtml">Consulta de Pagos</a></li>
@@ -123,7 +114,13 @@
                     <ul class="nav nav-sidebar activo">
                         <li><a href="formCobertura.xhtml">Coberturas</a></li>
                     </ul>
-                   
+                    <ul class="nav nav-sidebar">
+                        <li><a href="">Reportes</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <h:form><center><h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" /></center></h:form>
+                    </ul>
+
                 </div>
 
                 <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main"> 
