@@ -38,7 +38,7 @@
                 background-color: wheat
 
             }
-            
+
             .activo2{
                 background-color: palevioletred
 
@@ -61,13 +61,13 @@
                     </button>
                     <a class="navbar-brand" href="#">CIT SERVICES</a>
                 </div>
-                
+
             </div>
         </nav>
 
         <div class="container-fluid">
             <div class="row">
-               <div id="navbar" class="col-sm-3 col-md-2 sidebar collapse">
+                <div id="navbar" class="col-sm-3 col-md-2 sidebar collapse">
                     <ul class="nav nav-sidebar">
                         <li class="active"><img class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
@@ -102,6 +102,9 @@
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="">Reportes</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <h:form><center><b:commandButton value="Log Out" ajax="true"  look="danger" style="width:250px" action-listener="#{usuariosBean.cerrarSesion()}"/></center></h:form>
                     </ul>
                 </div>
 
