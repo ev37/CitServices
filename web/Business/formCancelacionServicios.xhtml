@@ -25,7 +25,7 @@
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="Resources/assets/js/ie-emulation-modes-warning.js"></script>
-        <style type="text/css">
+         <style type="text/css">
             .centrado{
                 margin:10px auto;
                 display:block;
@@ -35,7 +35,13 @@
                 border-style: none !important
             }
             .activo{
-                color: white
+                background-color: wheat
+
+            }
+            
+            .activo2{
+                background-color: palevioletred
+
             }
         </style>
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
@@ -52,34 +58,25 @@
                     </button>
                     <a class="navbar-brand" href="#">CIT SERVICES</a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">                        
-
-                        <li><a href="#"> Perfil </a></li>
-
-                    </ul>
-                    <h:form class="navbar-form navbar-right">
-                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
-                    </h:form>
-                </div>
+                
             </div>
         </nav>
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+                <div id="navbar" class="col-sm-3 col-md-2 sidebar collapse">
                     <ul class="nav nav-sidebar">
                         <li class="active"><img class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formConsultaClientes.xhtml">Cancelación de Servicios</a></li>
+                    <ul class="nav nav-sidebar activo">
+                        <li><a href="formCancelacionServicios.xhtml">Cancelación de Servicios</a></li>
                     </ul>
-
-
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formConsultaClientes.xhtml">Consulta General</a></li>
+                    </ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
                     </ul>
@@ -89,19 +86,19 @@
                     </ul>
 
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Consulta de Pagos</a></li>
+                        <li><a href="formConsultaPago.xhtml">Consulta de Pagos</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Modificar Datos Cliente</a></li>
+                        <li><a href="formModificarDato.xhtmls">Modificar Datos Cliente</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Consulta General</a></li>
+                        <li><a href="formReclamo.xhtml">Reclamos</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Reclamos</a></li>
+                        <li><a href="formCobertura.xhtml">Cobertura</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">Cobertura</a></li>
+                        <li><a href="">Reportes</a></li>
                     </ul>
                 </div>
 
