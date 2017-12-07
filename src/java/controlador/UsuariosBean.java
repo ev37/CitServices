@@ -83,7 +83,7 @@ public class UsuariosBean implements Serializable {
                     context.getExternalContext().redirect("../Business/formConsultaClientes.xhtml");
                 } else if (usuarioSesion.getTipo_usuario() == 5) {
                     System.out.println(usuarioSesion.getNombre());
-                    context.getExternalContext().redirect("../Cliente/formConsultarPago.xhtml");
+                    context.getExternalContext().redirect("../Cliente/formConsultaClientes.xhtml");
                 }
 
             }

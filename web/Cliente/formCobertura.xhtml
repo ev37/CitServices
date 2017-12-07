@@ -118,7 +118,7 @@
                         <li><a href="">Reportes</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <h:form><center><h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" /></center></h:form>
+                        <h:form><center><b:commandButton value="Log Out" ajax="true"  look="danger" style="width:250px" action-listener="#{usuariosBean.cerrarSesion()}"/></center></h:form>
                     </ul>
 
                 </div>

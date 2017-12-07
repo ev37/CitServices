@@ -51,27 +51,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="#">CIT SERVICIES</a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"> Perfil </a></li>
-
-
-                    </ul>
-                    <h:form class="navbar-form navbar-right">
-                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
-                    </h:form>
-
-                </div>
+                
 
             </div>
         </nav>
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+                <div  id="navbar" class="col-sm-3 col-md-2 sidebar collapse">
                     <ul class="nav nav-sidebar">
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
@@ -93,8 +82,11 @@
                     <ul class="nav nav-sidebar">
                         <li><a href="formCobertura.xhtml">Coberturas</a></li>
                     </ul>
+                     <ul class="nav nav-sidebar">
+                        <li><a href="">Reportes</a></li>
+                    </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formCobertura.xhtml" a>Coberturas</a></li>
+                        <h:form><center><b:commandButton value="Log Out" ajax="true"  look="danger" style="width:250px" action-listener="#{usuariosBean.cerrarSesion()}"/></center></h:form>
                     </ul>
 
                    
@@ -112,7 +104,7 @@
                            
                         </h:panelGrid>
 
-                        <h2> Servcios de Cable!</h2>
+                        <h2> Servicios de Cable!</h2>
                         <h:panelGrid >
                             <p:dataTable id="data" value="#{consultaClientesBean.lstclientes}" var="paciente"
                                          reflow="true" rows="5" paginator="true">
