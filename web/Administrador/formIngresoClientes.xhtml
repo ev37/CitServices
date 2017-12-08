@@ -36,7 +36,7 @@
                 border-style: none !important
             }
             .activo{
-                background-color: wheat
+                background-color: #D8D5D5
 
             }
 
@@ -45,7 +45,7 @@
 
             }
         </style>
-        
+
         <f:event type="preRenderView" listener="#{clientesBeanAdmon.listartodosId()}"/>
         <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarPersona()}"/>
         <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarclientes()}"/>
@@ -65,18 +65,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="#">CIT SERVICES</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
 
-                        <li><a href="#"> Perfil </a></li>
-
-                    </ul>
-                    <h:form class="navbar-form navbar-right">
-                        <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
-                    </h:form>
                 </div>
             </div>
         </nav>
@@ -115,14 +107,15 @@
                 </div>
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">  
-                    <center>
-                        <h2>Ingreso De Clientes</h2>
-                        <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                        <br/><br/><br/>
-                        <b:panel title="Ingreso de Clientes"
-                                 look="primary" collapsible="false">
+                    <b:panel title="Ingreso de Clientes"
+                             look="primary" collapsible="false">
+                        <center>
+                            <h2>Ingreso De Clientes</h2>
+                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
+                            <br/><br/><br/>
+
                             <h:form id="frm">
-                                <h:panelGrid columns="2">                    
+                                <h:panelGrid columns="4">                    
                                     <p:outputLabel value="Nombre:"/>
                                     <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
                                         <f:selectItems itemLabel="(Please select)" itemValue="" />
@@ -148,12 +141,12 @@
 
                                 </h:panelGrid>
                                 <br/><br/><br/><br/>
-                                <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}"/>
+                                <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}" update="frm"/>
                                 <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
-                            </h:form>   
+                            
                             <br/><br/><br/><br/>
-                            <h:form>
-                                <p:dataTable var="clientes" value="#{clientesBeanAdmon.lstCliente}">
+                          
+                                <p:dataTable   var="clientes" value="#{clientesBeanAdmon.lstCliente}">
                                     <p:column headerText="Id">
                                         <h:outputText value="#{clientes.id_cliente}" />
                                     </p:column>
@@ -175,10 +168,12 @@
                                 </p:dataTable>
                             </h:form>    
 
-                            <b:messages />
-                        </b:panel>
 
-                    </center>
+                        </center>
+                        <b:messages />
+                    </b:panel>
+
+
                 </div>
             </div>
         </div>
