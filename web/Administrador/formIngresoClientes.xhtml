@@ -67,15 +67,13 @@
                     </button>
                     <a class="navbar-brand" href="#">CIT SERVICES</a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse">
-
-                </div>
+                
             </div>
         </nav>
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+                <div id="navbar" class="col-sm-3 col-md-2 sidebar collapse">
                     <ul class="nav nav-sidebar">
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
@@ -115,7 +113,7 @@
                             <br/><br/><br/>
 
                             <h:form id="frm">
-                                <h:panelGrid columns="4">                    
+                                <p:panelGrid columns="2"  layout="grid" styleClass="ui-panelgrid-blank">                    
                                     <p:outputLabel value="Nombre:"/>
                                     <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
                                         <f:selectItems itemLabel="(Please select)" itemValue="" />
@@ -139,7 +137,7 @@
                                     <p:outputLabel value="Email:"/>
                                     <p:inputText value="#{clientesBeanAdmon.cliente.email}"/>
 
-                                </h:panelGrid>
+                                </p:panelGrid>
                                 <br/><br/><br/><br/>
                                 <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}" update="frm"/>
                                 <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
