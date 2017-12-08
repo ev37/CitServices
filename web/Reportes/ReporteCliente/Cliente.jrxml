@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cliente" printOrder="Horizontal" pageWidth="1000" pageHeight="842" columnWidth="990" leftMargin="5" rightMargin="5" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="efd268fa-c78b-4ffc-a97a-1e3b2384d707">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Clientes" uuid="9aaee60e-a6ad-4c76-9669-7f2baad54817">
+		<queryString language="SQL">
+			<![CDATA[SELECT clientes.id_cliente, persona.nombre, persona.apellido, persona.direccion,persona.dpi,persona.telefono_movil,persona.nit,persona.fecha_nacimiento,persona.telefono_casa, categoria.nombre as categoria, estado.nombre as estado,tipo_cliente.nombre as tipo_cliente
+from clientes inner JOIN categoria on clientes.id_categoria = categoria.id_categoria
+inner join estado ON clientes.id_estado = estado.codestado
+inner join tipo_cliente on clientes.id_tipo_cliente = tipo_cliente.id_tipo_cliente
+inner join persona on clientes.id_cliente=persona.id_persona;]]>
+		</queryString>
+		<field name="id_cliente" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nombre" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="apellido" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="direccion" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="dpi" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="telefono_movil" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nit" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fecha_nacimiento" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="telefono_casa" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="categoria" class="java.lang.String"/>
+		<field name="estado" class="java.lang.String"/>
+		<field name="tipo_cliente" class="java.lang.String"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT clientes.id_cliente, persona.nombre, persona.apellido, persona.direccion,persona.dpi,persona.telefono_movil,persona.nit,persona.fecha_nacimiento,persona.telefono_casa, categoria.nombre as categoria, estado.nombre as estado,tipo_cliente.nombre as tipo_cliente
+from clientes inner JOIN categoria on clientes.id_categoria = categoria.id_categoria
+inner join estado ON clientes.id_estado = estado.codestado
+inner join tipo_cliente on clientes.id_tipo_cliente = tipo_cliente.id_tipo_cliente
+inner join persona on clientes.id_cliente=persona.id_persona;]]>
+	</queryString>
+	<field name="id_cliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dpi" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_movil" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nit" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha_nacimiento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono_casa" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="categoria" class="java.lang.String"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="tipo_cliente" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<image>
+				<reportElement x="65" y="-9" width="300" height="123" uuid="d1448d9f-fd42-492e-a4a6-f3e8dabc694f"/>
+				<imageExpression><![CDATA["logocitfinal.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="338" y="0" width="263" height="33" uuid="49d1a056-5d76-4ddd-9795-141d95657128"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[CIT SERVICES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="396" y="33" width="157" height="22" uuid="2b1c5079-8613-4827-92d4-6abc5aeaf3b7"/>
+				<text><![CDATA[30AV 3-75 ZONA 15 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="322" y="81" width="263" height="33" uuid="0233fac1-a423-4e1d-92cf-6168fe13aca7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[REPORTE CLIENTES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="9260e0da-0bd7-477d-9c23-0227afacbe6a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="18" y="19" width="65" height="15" uuid="31d824bf-a2ad-455f-b940-f2da48115440"/>
+				<text><![CDATA[id_cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="19" width="46" height="15" uuid="4aae2743-5e3e-4b61-8862-a9a26888c19e"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="19" width="46" height="15" uuid="bc9f908b-efc5-4ae2-ad19-ca9af8a9fc84"/>
+				<text><![CDATA[apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="19" width="59" height="15" uuid="b26d0988-5d73-4665-8342-53bee8924fc4"/>
+				<text><![CDATA[direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="20" width="46" height="15" uuid="129bfbd4-9b0b-4e23-ad50-5752000ba617"/>
+				<text><![CDATA[dpi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="19" width="92" height="15" uuid="c6f032f9-510a-4786-b1ba-ff3f3b9b7afa"/>
+				<text><![CDATA[telefono_movil]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="21" width="46" height="15" uuid="f0467f3b-2193-47a8-858f-2effd39374cc"/>
+				<text><![CDATA[nit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="19" width="111" height="15" uuid="efaf5616-f3a4-48e1-8554-3cd45b9c8d2f"/>
+				<text><![CDATA[fecha_nacimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="20" width="84" height="16" uuid="70b33f30-b26f-4acb-8daa-62a42ff805aa"/>
+				<text><![CDATA[telefono_casa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="728" y="20" width="58" height="15" uuid="918ba824-c33b-42bc-b2e5-f3d79b7998c7"/>
+				<text><![CDATA[categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="798" y="20" width="46" height="15" uuid="473101e1-cfae-4caa-8502-c9930f4a8899"/>
+				<text><![CDATA[estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="854" y="21" width="67" height="15" uuid="6f45a23f-abac-4142-ac67-e6f085dd54b4"/>
+				<text><![CDATA[tipo_cliente]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="417d0521-42de-440b-b287-a38758e58537"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="18" y="0" width="46" height="15" uuid="9c7ce7bd-9493-45fa-a2b0-330c10456b82"/>
+				<textFieldExpression><![CDATA[$F{id_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="46" height="15" uuid="c2dd328f-47ee-4fba-9317-b2618ddeb730"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="176" y="0" width="46" height="15" uuid="b59eb1fd-899c-4d59-ac06-516f6b3ca6b4"/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="0" width="46" height="15" uuid="727fdcbc-6486-4aec-ae02-d5e5d5d3efa0"/>
+				<textFieldExpression><![CDATA[$F{direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="865" y="3" width="46" height="15" uuid="9b9ceaa9-97f4-41b1-9a3d-20f327536056"/>
+				<textFieldExpression><![CDATA[$F{tipo_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="728" y="2" width="46" height="15" uuid="13c1b93c-e1f6-4dd9-ab7b-18d1e37104e3"/>
+				<textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="559" y="1" width="46" height="15" uuid="f8f5575c-fb07-442b-aba5-b4056dd1d3f0"/>
+				<textFieldExpression><![CDATA[$F{fecha_nacimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="798" y="2" width="46" height="15" uuid="079bc5b6-07d5-40c7-a995-4cf77b77084e"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="656" y="4" width="46" height="16" uuid="d81ee784-3e62-4203-9f9e-bed83017bf2d"/>
+				<textFieldExpression><![CDATA[$F{telefono_casa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="457" y="2" width="46" height="15" uuid="cd4ae485-cc3a-4ab8-8e87-f8af0ca0cf30"/>
+				<textFieldExpression><![CDATA[$F{nit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="3" width="46" height="15" uuid="9f956ebb-bc57-4cff-b63b-a070aa2030e1"/>
+				<textFieldExpression><![CDATA[$F{telefono_movil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="2" width="46" height="15" uuid="dfb42e86-b3cb-4132-95aa-a1a384603efa"/>
+				<textFieldExpression><![CDATA[$F{dpi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="ae2336ce-5e1a-40e8-aba1-462e030e6876"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="29315c40-52b3-463f-ad70-cc1ef84575d9"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="9d99afa6-c128-48ec-a73c-24c39e075b03"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="6e24444f-636d-44b2-9c79-a21e9cd56771"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
