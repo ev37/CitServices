@@ -67,7 +67,7 @@
                     </button>
                     <a class="navbar-brand" href="#">CIT SERVICES</a>
                 </div>
-                
+
             </div>
         </nav>
 
@@ -106,44 +106,44 @@
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">  
                     <b:panel title="Ingreso de Clientes"
-                             look="primary" collapsible="false">
+                             look="primary" collapsible="false" style=" background-color:#F7F5F5">
                         <center>
                             <h2>Ingreso De Clientes</h2>
                             <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                             <br/><br/><br/>
 
                             <h:form id="frm">
-                                <p:panelGrid columns="2"  layout="grid" styleClass="ui-panelgrid-blank">                    
-                                    <p:outputLabel value="Nombre:"/>
-                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
-                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                        <f:selectItems value="#{clientesBeanAdmon.lstPersona}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
-                                    </b:selectOneMenu>
-                                    <p:outputLabel value="Categoria:"/>
-                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_categoria}"  required="true" style="width: 150px" >
-                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                        <f:selectItems value="#{clientesBeanAdmon.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.id_categoria}" />              
-                                    </b:selectOneMenu>
-                                    <p:outputLabel value="Estado:"/>
-                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_estado}"  required="true" style="width: 150px" >
-                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                        <f:selectItems value="#{clientesBeanAdmon.lstEstado}" var="es" itemLabel="#{es.nombre}" itemValue="#{es.codestado}" />              
-                                    </b:selectOneMenu>
-                                    <p:outputLabel value="Tipo de cliente:"/>
-                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_tipo_cliente}"  required="true"  style="width: 150px">
-                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                        <f:selectItems value="#{clientesBeanAdmon.lstTipoCliente}" var="tip" itemLabel="#{tip.nombre}" itemValue="#{tip.id_tipo_cliente}" />              
-                                    </b:selectOneMenu>
-                                    <p:outputLabel value="Email:"/>
-                                    <p:inputText value="#{clientesBeanAdmon.cliente.email}"/>
+                                <p:panelGrid columns="2"   styleClass="ui-panelgrid-blank">                    
+                                        <p:outputLabel value="Nombre:"/>
+                                        <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
+                                            <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                            <f:selectItems value="#{clientesBeanAdmon.lstPersona}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
+                                        </b:selectOneMenu>
+                                        <p:outputLabel value="Categoria:"/>
+                                        <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_categoria}"  required="true" style="width: 150px" >
+                                            <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                            <f:selectItems value="#{clientesBeanAdmon.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.id_categoria}" />              
+                                        </b:selectOneMenu>
+                                        <p:outputLabel value="Estado:"/>
+                                        <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_estado}"  required="true" style="width: 150px" >
+                                            <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                            <f:selectItems value="#{clientesBeanAdmon.lstEstado}" var="es" itemLabel="#{es.nombre}" itemValue="#{es.codestado}" />              
+                                        </b:selectOneMenu>
+                                        <p:outputLabel value="Tipo de cliente:"/>
+                                        <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_tipo_cliente}"  required="true"  style="width: 150px">
+                                            <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                            <f:selectItems value="#{clientesBeanAdmon.lstTipoCliente}" var="tip" itemLabel="#{tip.nombre}" itemValue="#{tip.id_tipo_cliente}" />              
+                                        </b:selectOneMenu>
+                                        <p:outputLabel value="Email:"/>
+                                        <p:inputText value="#{clientesBeanAdmon.cliente.email}"/>
 
-                                </p:panelGrid>
+                                    </p:panelGrid>
                                 <br/><br/><br/><br/>
                                 <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}" update="frm"/>
                                 <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
-                            
-                            <br/><br/><br/><br/>
-                          
+
+                                <br/><br/><br/><br/>
+
                                 <p:dataTable   var="clientes" value="#{clientesBeanAdmon.lstCliente}" reflow="true">
                                     <p:column headerText="Id">
                                         <h:outputText value="#{clientes.id_cliente}" />
