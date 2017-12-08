@@ -1,18 +1,18 @@
-package controlador;
+package beanAdministrador;
 
-import dao.ClientesDAO;
+import daoAdministrador.ClientesDAO;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import modelo.Categoria;
-import modelo.Clientes;
+import ModeloAdministrador.Clientes;
 import modelo.Estado;
 import modelo.Personas;
 import modelo.TipoCliente;
 
 @ManagedBean
 @ViewScoped
-public class ClientesBean {
+public class ClientesBeanAdmon {
 
     private List<Personas> lstPersona;
     private List<Clientes> lstCliente;
@@ -102,6 +102,15 @@ public class ClientesBean {
             lstCategoria = dao.listarCategoria();
             lstEstado = dao.listarEstado();
             lstTipoCliente = dao.listarTipoCliente();
+        } catch (Exception e) {
+            System.out.println("Error en el BEAN listartodos los id");
+        }
+    }
+    
+    public void listarclientes() throws Exception {
+        ClientesDAO dao = new ClientesDAO();
+        try {
+            lstCliente = dao.tablacliente();
         } catch (Exception e) {
             System.out.println("Error en el BEAN listartodos los id");
         }

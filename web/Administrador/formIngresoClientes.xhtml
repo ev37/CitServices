@@ -36,12 +36,19 @@
                 border-style: none !important
             }
             .activo{
-                color: white
+                background-color: wheat
+
+            }
+
+            .activo2{
+                background-color: palevioletred
+
             }
         </style>
-        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
-        <f:event type="preRenderView" listener="#{clientesBean.listartodosId()}"/>
-        <f:event type="preRenderView" listener="#{clientesBean.listarPersona()}"/>
+        
+        <f:event type="preRenderView" listener="#{clientesBeanAdmon.listartodosId()}"/>
+        <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarPersona()}"/>
+        <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarclientes()}"/>
         <script type="text/javascript">
             function limpiarForm() {
                 document.getElementById("frm").reset();
@@ -62,13 +69,13 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        
+
                         <li><a href="#"> Perfil </a></li>
-                        
+
                     </ul>
                     <h:form class="navbar-form navbar-right">
                         <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                         <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
                     </h:form>
                 </div>
             </div>
@@ -80,65 +87,97 @@
                     <ul class="nav nav-sidebar">
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formCancelacionServicios.xhtml">Cancelacion Servicios</a></li>
+                    <ul class="nav nav-sidebar activo">
+                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formConsultaClientes.xhtml">Consulta Clientes</a></li>
-                    </ul>
-
-
                     <ul class="nav nav-sidebar">
                         <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
+                        <li><a href="formIngresoUsuario.xhtml">Ingreso de usuario</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formRenovacionContratos.xhtml">  Renovacion Contratos</a></li>
-                    </ul>
-
-                    <ul class="nav nav-sidebar">
-                        <li><a href="">Another nav item</a></li>
+                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes de cable</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">More navigation</a></li>
+                        <li><a href="formIngresoPaquetesInternet.xhtml">Paquetes de Internet</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formIngresoPaquetesCombos.xhtml">Paquetes de Combos</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formMostrarReclamos.xhtml">Reclamos</a></li>
+                    </ul>
+                    <br/>
+                    <ul class="nav nav-sidebar">
+                        <h:form><center><b:commandButton value="Log Out" ajax="true"  look="danger" style="width:250px" action-listener="#{usuariosBean.cerrarSesion()}"/></center></h:form>
                     </ul>
                 </div>
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">  
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main ">  
                     <center>
                         <h2>Ingreso De Clientes</h2>
                         <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                        <h:form id="frm">
-                            <h:panelGrid columns="2">                    
-                                <p:outputLabel value="Nombre:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_cliente}"  required="true"  style="width: 150px">
-                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstPersona}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
-                                </b:selectOneMenu>
-                                <p:outputLabel value="Categoria:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_categoria}"  required="true" style="width: 150px" >
-                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.id_categoria}" />              
-                                </b:selectOneMenu>
-                                <p:outputLabel value="Estado:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_estado}"  required="true" style="width: 150px" >
-                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstEstado}" var="es" itemLabel="#{es.nombre}" itemValue="#{es.codestado}" />              
-                                </b:selectOneMenu>
-                                <p:outputLabel value="Tipo de cliente:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_tipo_cliente}"  required="true"  style="width: 150px">
-                                    <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstTipoCliente}" var="tip" itemLabel="#{tip.nombre}" itemValue="#{tip.id_tipo_cliente}" />              
-                                </b:selectOneMenu>
-                                <p:outputLabel value="Email:"/>
-                                <p:inputText value="#{clientesBean.cliente.email}"/>
+                        <br/><br/><br/>
+                        <b:panel title="Ingreso de Clientes"
+                                 look="primary" collapsible="false">
+                            <h:form id="frm">
+                                <h:panelGrid columns="2">                    
+                                    <p:outputLabel value="Nombre:"/>
+                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
+                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                        <f:selectItems value="#{clientesBeanAdmon.lstPersona}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
+                                    </b:selectOneMenu>
+                                    <p:outputLabel value="Categoria:"/>
+                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_categoria}"  required="true" style="width: 150px" >
+                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                        <f:selectItems value="#{clientesBeanAdmon.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.id_categoria}" />              
+                                    </b:selectOneMenu>
+                                    <p:outputLabel value="Estado:"/>
+                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_estado}"  required="true" style="width: 150px" >
+                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                        <f:selectItems value="#{clientesBeanAdmon.lstEstado}" var="es" itemLabel="#{es.nombre}" itemValue="#{es.codestado}" />              
+                                    </b:selectOneMenu>
+                                    <p:outputLabel value="Tipo de cliente:"/>
+                                    <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_tipo_cliente}"  required="true"  style="width: 150px">
+                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                        <f:selectItems value="#{clientesBeanAdmon.lstTipoCliente}" var="tip" itemLabel="#{tip.nombre}" itemValue="#{tip.id_tipo_cliente}" />              
+                                    </b:selectOneMenu>
+                                    <p:outputLabel value="Email:"/>
+                                    <p:inputText value="#{clientesBeanAdmon.cliente.email}"/>
 
-                            </h:panelGrid>
-                            <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBean.registrarClientes()}"/>
-                            <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
-                        </h:form>  
+                                </h:panelGrid>
+                                <br/><br/><br/><br/>
+                                <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}"/>
+                                <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                            </h:form>   
+                            <br/><br/><br/><br/>
+                            <h:form>
+                                <p:dataTable var="clientes" value="#{clientesBeanAdmon.lstCliente}">
+                                    <p:column headerText="Id">
+                                        <h:outputText value="#{clientes.id_cliente}" />
+                                    </p:column>
+
+                                    <p:column headerText="Categoria">
+                                        <h:outputText value="#{clientes.id_categoria}" />
+                                    </p:column>
+
+                                    <p:column headerText="Tipo Cliente">
+                                        <h:outputText value="#{clientes.id_tipo_cliente}" />
+                                    </p:column>
+
+                                    <p:column headerText="Estado">
+                                        <h:outputText value="#{clientes.id_estado}" />
+                                    </p:column>
+                                    <p:column headerText="Email">
+                                        <h:outputText value="#{clientes.email}" />
+                                    </p:column>
+                                </p:dataTable>
+                            </h:form>    
+
+                            <b:messages />
+                        </b:panel>
+
                     </center>
                 </div>
             </div>

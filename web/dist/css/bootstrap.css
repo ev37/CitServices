@@ -1,3 +1,4 @@
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -240,6 +241,7 @@ th {
   }
   .navbar {
     display: none;
+    z-index: 1000;
   }
   .btn > .caret,
   .dropup > .btn > .caret {

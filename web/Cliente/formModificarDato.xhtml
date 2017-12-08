@@ -99,13 +99,13 @@
                     <center>
                         <b:form horizontal="true">
                             <h:panelGrid>
-                                <b:inputText id="idCliente" value="#{modificarClienteBean.clie.idCliente}" label="ID Cliente: " colMd="7" labelColMd="5" placeholder="ID Cliente"/>
+                                <b:inputText id="idCliente" value="#{clienteBean.clie.idCliente}" label="ID Cliente: " colMd="7" labelColMd="5" placeholder="ID Cliente"/>
 
-                                <b:inputText id="idDireccion" value="#{modificarClienteBean.clie.telefono_movil}" label="Direccion:" colMd="7" labelColMd="5" placeholder="Direccion"/>
+                                <b:inputText id="idDireccion" value="#{clienteBean.clie.telefono_movil}" label="Direccion:" colMd="7" labelColMd="5" placeholder="Direccion"/>
 
-                                <b:inputText id="idTelefono" value="#{modificarClienteBean.clie.telefono_casa}" label="Telefono:" placeholder="Telefono Movil" colMd="7" labelColMd="5"/>
+                                <b:inputText id="idTelefono" value="#{clienteBean.clie.telefono_casa}" label="Telefono:" placeholder="Telefono Movil" colMd="7" labelColMd="5"/>
                                 <br/>
-                                <b:commandButton update="@form" value="modificar" actionListener="#{modificarClienteBean.modificar()}"/>
+                                <b:commandButton update="@form" value="modificar" actionListener="#{clienteBean.modificar()}"/>
                             </h:panelGrid>
                         </b:form>
                     </center>

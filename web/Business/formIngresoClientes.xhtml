@@ -46,8 +46,8 @@
             }
         </style>
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
-        <f:event type="preRenderView" listener="#{clientesBean.listartodosId()}"/>
-        <f:event type="preRenderView" listener="#{clientesBean.listarPersona()}"/>
+        <f:event type="preRenderView" listener="#{clientesBeanAdmon.listartodosId()}"/>
+        <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarPersona()}"/>
         <script type="text/javascript">
             function limpiarForm() {
                 document.getElementById("frm").reset();
@@ -120,30 +120,30 @@
                         <h:form id="frm">
                             <h:panelGrid columns="2">                    
                                 <p:outputLabel value="Nombre:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_cliente}"  required="true"  style="width: 150px">
+                                <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
                                     <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstPersona}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
+                                    <f:selectItems value="#{clientesBeanAdmon.lstPersona}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
                                 </b:selectOneMenu>
                                 <p:outputLabel value="Categoria:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_categoria}"  required="true" style="width: 150px" >
+                                <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_categoria}"  required="true" style="width: 150px" >
                                     <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.id_categoria}" />              
+                                    <f:selectItems value="#{clientesBeanAdmon.lstCategoria}" var="cat" itemLabel="#{cat.nombre}" itemValue="#{cat.id_categoria}" />              
                                 </b:selectOneMenu>
                                 <p:outputLabel value="Estado:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_estado}"  required="true" style="width: 150px" >
+                                <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_estado}"  required="true" style="width: 150px" >
                                     <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstEstado}" var="es" itemLabel="#{es.nombre}" itemValue="#{es.codestado}" />              
+                                    <f:selectItems value="#{clientesBeanAdmon.lstEstado}" var="es" itemLabel="#{es.nombre}" itemValue="#{es.codestado}" />              
                                 </b:selectOneMenu>
                                 <p:outputLabel value="Tipo de cliente:"/>
-                                <b:selectOneMenu value="#{clientesBean.cliente.id_tipo_cliente}"  required="true"  style="width: 150px">
+                                <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_tipo_cliente}"  required="true"  style="width: 150px">
                                     <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                    <f:selectItems value="#{clientesBean.lstTipoCliente}" var="tip" itemLabel="#{tip.nombre}" itemValue="#{tip.id_tipo_cliente}" />              
+                                    <f:selectItems value="#{clientesBeanAdmon.lstTipoCliente}" var="tip" itemLabel="#{tip.nombre}" itemValue="#{tip.id_tipo_cliente}" />              
                                 </b:selectOneMenu>
                                 <p:outputLabel value="Email:"/>
-                                <p:inputText value="#{clientesBean.cliente.email}"/>
+                                <p:inputText value="#{clientesBeanAdmon.cliente.email}"/>
 
                             </h:panelGrid>
-                            <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBean.registrarClientes()}"/>
+                            <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}"/>
                             <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
                         </h:form>  
                     </center>

@@ -36,7 +36,13 @@
                 border-style: none !important
             }
             .activo{
-                color: white
+                background-color: wheat
+
+            }
+
+            .activo2{
+                background-color: palevioletred
+
             }
         </style>
         <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
@@ -55,13 +61,13 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        
+
                         <li><a href="#"> Perfil </a></li>
-                        
+
                     </ul>
                     <h:form class="navbar-form navbar-right">
                         <input type="text" value="#{plantillaController.usua.nombre}" class="form-control" placeholder="Search..."/>
-                         <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
+                        <h:commandLink value="Log Out"  actionListener="#{usuariosBean.cerrarSesion()}" />
                     </h:form>
                 </div>
             </div>
@@ -73,60 +79,61 @@
                     <ul class="nav nav-sidebar">
                         <li class="active"><img  class="centrado" id="imagen" src="../resource/imagenes/logocitfinal.png"/></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formCancelacionServicios.xhtml">Cancelacion Servicios</a></li>
+                    <ul class="nav nav-sidebar ">
+                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formConsultaClientes.xhtml">Consulta Clientes</a></li>
-                    </ul>
-
-
                     <ul class="nav nav-sidebar">
                         <li><a href="formIngresoPersonas.xhtml">Ingreso de Persona</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoClientes.xhtml">Ingreso de Clientes</a></li>
+                        <li><a href="formIngresoUsuario.xhtml">Ingreso de usuario</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="formRenovacionContratos.xhtml">  Renovacion Contratos</a></li>
-                    </ul>
-
-                    <ul class="nav nav-sidebar">
-                        <li><a href="">Another nav item</a></li>
+                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes de cable</a></li>
                     </ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="">More navigation</a></li>
+                        <li><a href="formIngresoPaquetesInternet.xhtml">Paquetes de Internet</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar activo">
+                        <li><a href="formIngresoPaquetesCombos.xhtml">Paquetes de Combos</a></li>
+                    </ul>
+                    <ul class="nav nav-sidebar">
+                        <li><a href="formMostrarReclamos.xhtml">Reclamos</a></li>
+                    </ul>
+                    <br/><br/><br/>
+                    <ul class="nav nav-sidebar">
+                        <h:form><center><b:commandButton value="Log Out" ajax="true"  look="danger" style="width:250px" action-listener="#{usuariosBean.cerrarSesion()}"/></center></h:form>
                     </ul>
                 </div>
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
                     <center>
-                    
-                    
-                    <h:form id="frm">
-                        <h2>Ingreso De Personas</h2>
-                        <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                        <h:panelGrid columns="2">                    
-                            <p:outputLabel value="Nombre:"/>
-                            <p:inputText value="#{personaBean.per.nombre}"/>
-                            <p:outputLabel value="Apellido:"/>
-                            <p:inputText value="#{personaBean.per.apellido}"/>
-                            <p:outputLabel value="Direccion:"/>
-                            <p:inputText value="#{personaBean.per.direccion}"/>
-                            <p:outputLabel value="DPI:"/>
-                            <p:inputText value="#{personaBean.per.dpi}"/>
-                            <p:outputLabel value="Tel Movil:"/>
-                            <p:inputText value="#{personaBean.per.tel_movil}"/>
-                            <p:outputLabel value="NIT:"/>
-                            <p:inputText value="#{personaBean.per.nit}"/>
-                            <p:outputLabel value="Fecha Nacimiento:"/>
-                            <p:inputText value="#{personaBean.per.fecha_nac}"/>
-                            <p:outputLabel value="Tel Casa:"/>
-                            <p:inputText value="#{personaBean.per.tel_casa}"/>
-                        </h:panelGrid>
-                        <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}"/>
-                        <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
-                    </h:form>
+
+
+                        <h:form id="frm">
+                            <h2>Ingreso De Personas</h2>
+                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
+                            <h:panelGrid columns="2">                    
+                                <p:outputLabel value="Nombre:"/>
+                                <p:inputText value="#{personaBean.per.nombre}"/>
+                                <p:outputLabel value="Apellido:"/>
+                                <p:inputText value="#{personaBean.per.apellido}"/>
+                                <p:outputLabel value="Direccion:"/>
+                                <p:inputText value="#{personaBean.per.direccion}"/>
+                                <p:outputLabel value="DPI:"/>
+                                <p:inputText value="#{personaBean.per.dpi}"/>
+                                <p:outputLabel value="Tel Movil:"/>
+                                <p:inputText value="#{personaBean.per.tel_movil}"/>
+                                <p:outputLabel value="NIT:"/>
+                                <p:inputText value="#{personaBean.per.nit}"/>
+                                <p:outputLabel value="Fecha Nacimiento:"/>
+                                <p:inputText value="#{personaBean.per.fecha_nac}"/>
+                                <p:outputLabel value="Tel Casa:"/>
+                                <p:inputText value="#{personaBean.per.tel_casa}"/>
+                            </h:panelGrid>
+                            <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}"/>
+                            <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                        </h:form>
                     </center>
                 </div>
             </div>

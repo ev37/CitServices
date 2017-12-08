@@ -23,6 +23,7 @@ body {
  */
 .navbar-fixed-top {
   border: 0;
+  z-index: 1000;
 }
 
 /*
@@ -47,6 +48,7 @@ body {
     background-color: #f5f5f5;
     border-right: 1px solid #eee;
   }
+  
 }
 
 /* Sidebar navigation */
