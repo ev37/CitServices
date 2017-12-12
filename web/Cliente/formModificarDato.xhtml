@@ -40,7 +40,8 @@
                 background-color: #D8D5D5
             }
         </style>
-
+        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
+        <f:event type="preRenderView" listener="#{modificarClienteBean.listarCliente()}"/>
 
     </h:head>
     <h:body>
@@ -99,14 +100,44 @@
                     <center>
                         <b:form horizontal="true">
                             <h:panelGrid>
-                                <b:inputText id="idCliente" value="#{clienteBean.clie.idCliente}" label="ID Cliente: " colMd="7" labelColMd="5" placeholder="ID Cliente"/>
+                                <b:inputText id="idCliente" value="#{plantillaController.usua.id_usuario}" label="ID Cliente: " colMd="7" labelColMd="5" placeholder="ID Cliente"/>
 
-                                <b:inputText id="idDireccion" value="#{clienteBean.clie.telefono_movil}" label="Direccion:" colMd="7" labelColMd="5" placeholder="Direccion"/>
+                                <b:inputText id="idTelefonoMovil" value="#{modificarClienteBean.clie.telefono_movil}" label="Telefono_Movil:" colMd="7" labelColMd="5" placeholder="Direccion"/>
 
-                                <b:inputText id="idTelefono" value="#{clienteBean.clie.telefono_casa}" label="Telefono:" placeholder="Telefono Movil" colMd="7" labelColMd="5"/>
+                                <b:inputText id="idTelefonoCasa" value="#{modificarClienteBean.clie.telefono_casa}" label="Telefono_Casa:" placeholder="Telefono Movil" colMd="7" labelColMd="5"/>
                                 <br/>
-                                <b:commandButton update="@form" value="modificar" actionListener="#{clienteBean.modificar()}"/>
+                                <b:commandButton value="modificar" actionListener="#{modificarClienteBean.modificar()}"/>
                             </h:panelGrid>
+                            
+                            <br/><br/><br/><br/>
+
+                            <p:dataTable id="nuevo"  var="Dato" value="#{modificarClienteBean.listTabCliente}" reflow="true">
+                                    
+                                 <p:column headerText="Nombre">
+                                     <h:outputText value="#{Dato.nombre}" />
+                                    </p:column>
+                                 <p:column headerText="Apellido">
+                                     <h:outputText value="#{Dato.apellido}" />
+                                    </p:column>
+                                 <p:column headerText="Direccion">
+                                     <h:outputText value="#{Dato.direccion}" />
+                                    </p:column>
+                                 <p:column headerText="dpi">
+                                     <h:outputText value="#{Dato.dpi}" />
+                                    </p:column>
+                                 <p:column headerText="Telefono_movil">
+                                     <h:outputText value="#{Dato.tel_movil}" />
+                                    </p:column>
+                                 <p:column headerText="Nit">
+                                     <h:outputText value="#{Dato.nit}" />
+                                    </p:column>
+                                 <p:column headerText="Fecha_Nacimiento">
+                                     <h:outputText value="#{Dato.fecha_nac}" />
+                                    </p:column>
+                                 <p:column headerText="Telefono_Casa">
+                                     <h:outputText value="#{Dato.tel_casa}" />
+                                    </p:column>
+                                </p:dataTable>
                         </b:form>
                     </center>
                 </div>
