@@ -123,15 +123,19 @@ public class ClientesDAO extends DAO {
 
         try {
             this.conectar();
-            PreparedStatement st = this.getCn().prepareCall("select id_cliente,id_categoria, id_estado, id_tipo_cliente, email from clientes");
+            PreparedStatement st = this.getCn().prepareCall("select * from vwdatocliente");
             result = st.executeQuery();
             while (result.next()) {
                 Clientes cli = new Clientes();
                 cli.setId_cliente((result.getInt("id_cliente")));
+                cli.setCliente((result.getString("cliente")));
                 cli.setId_categoria((result.getInt("id_categoria")));
-                cli.setId_estado((result.getInt("id_estado")));
-                cli.setId_tipo_cliente((result.getInt("id_tipo_cliente")));
-                cli.setEmail(result.getString("email"));
+                cli.setCategoria((result.getString("categoria")));
+                cli.setId_tipo_cliente(result.getInt("id_tipo_cliente"));
+                cli.setTipo_cliente((result.getString("tipo_cliente")));
+                cli.setId_estado(result.getInt("id_estado"));
+                cli.setEstado((result.getString("estado")));
+                
                 lis.add(cli);
             }
         } catch (Exception e) {

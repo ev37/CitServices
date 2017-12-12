@@ -16,7 +16,47 @@ public class Clientes {
    private int id_estado;
    private int id_tipo_cliente;
    private String email;
+   private String categoria;
+   private String tipo_cliente;
+   private String estado;
+   private String cliente;
 
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+   
+   
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getTipo_cliente() {
+        return tipo_cliente;
+    }
+
+    public void setTipo_cliente(String tipo_cliente) {
+        this.tipo_cliente = tipo_cliente;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+   
+   
     public String getNombre() {
         return nombre;
     }

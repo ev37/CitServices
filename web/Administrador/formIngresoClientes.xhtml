@@ -108,12 +108,12 @@
                     <b:panel title="Ingreso de Clientes"
                              look="primary" collapsible="false" style=" background-color:#F7F5F5">
                         <center>
-                            <h2>Ingreso De Clientes</h2>
+                            <h2>Ingreso Clientes</h2>
                             <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                             <br/><br/><br/>
 
                             <h:form id="frm">
-                                <p:panelGrid columns="2"   styleClass="ui-panelgrid-blank">                    
+                                <p:panelGrid columns="4"   styleClass="ui-panelgrid-blank">                    
                                         <p:outputLabel value="Nombre:"/>
                                         <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
                                             <f:selectItems itemLabel="(Please select)" itemValue="" />
@@ -149,19 +149,19 @@
                                         <h:outputText value="#{clientes.id_cliente}" />
                                     </p:column>
 
+                                    <p:column headerText="Cliente">
+                                        <h:outputText value="#{clientes.cliente}" />
+                                    </p:column>
+
                                     <p:column headerText="Categoria">
-                                        <h:outputText value="#{clientes.id_categoria}" />
+                                        <h:outputText value="#{clientes.categoria}" />
                                     </p:column>
 
                                     <p:column headerText="Tipo Cliente">
-                                        <h:outputText value="#{clientes.id_tipo_cliente}" />
+                                        <h:outputText value="#{clientes.tipo_cliente}" />
                                     </p:column>
-
                                     <p:column headerText="Estado">
-                                        <h:outputText value="#{clientes.id_estado}" />
-                                    </p:column>
-                                    <p:column headerText="Email">
-                                        <h:outputText value="#{clientes.email}" />
+                                        <h:outputText value="#{clientes.estado}" />
                                     </p:column>
                                 </p:dataTable>
                             </h:form>    
