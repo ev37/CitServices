@@ -5,7 +5,7 @@ public class Personas {
     private String nombre;
     private String apellido;
     private String direccion;
-    private int dpi;
+    private long dpi;
     private int tel_movil;
     private int nit;
     private String fecha_nac;
@@ -53,13 +53,15 @@ public class Personas {
         this.direccion = direccion;
     }
 
-    public int getDpi() {
+    public long getDpi() {
         return dpi;
     }
 
-    public void setDpi(int dpi) {
+    public void setDpi(long dpi) {
         this.dpi = dpi;
     }
+
+    
 
     public int getTel_movil() {
         return tel_movil;

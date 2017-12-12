@@ -45,6 +45,7 @@
 
             }
         </style>
+        <f:event type="preRenderView" listener="#{personaBeanAdmon.listarPersonas()}"/>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -124,6 +125,40 @@
                                 </h:panelGrid>
                                 <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}"/>
                                 <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                                
+                                
+                                <p:dataTable   var="personas" value="#{personaBeanAdmon.lstPersonas}" reflow="true">
+                                    <p:column headerText="Id">
+                                        <h:outputText value="#{personas.id}" />
+                                    </p:column>
+
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{personas.nombre}" />
+                                    </p:column>
+
+                                    <p:column headerText="Apellido">
+                                        <h:outputText value="#{personas.apellido}" />
+                                    </p:column>
+
+                                    <p:column headerText="Direccion">
+                                        <h:outputText value="#{personas.direccion}" />
+                                    </p:column>
+                                    <p:column headerText="DPI">
+                                        <h:outputText value="#{personas.dpi}" />
+                                    </p:column>
+                                    <p:column headerText="Telefono Movil">
+                                        <h:outputText value="#{personas.tel_movil}" />
+                                    </p:column>
+                                    <p:column headerText="NIT">
+                                        <h:outputText value="#{personas.nit}" />
+                                    </p:column>
+                                    <p:column headerText="Fecha Nacimiento">
+                                        <h:outputText value="#{personas.fecha_nac}" />
+                                    </p:column>
+                                    <p:column headerText="Telefono Casa">
+                                        <h:outputText value="#{personas.tel_casa}" />
+                                    </p:column>
+                                </p:dataTable>
                             </h:form>
                         </center>
                         <b:messages />

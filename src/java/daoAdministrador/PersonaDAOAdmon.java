@@ -17,7 +17,7 @@ public class PersonaDAOAdmon extends DAO {
             st.setString(1, personas.getNombre());
             st.setString(2, personas.getApellido());
             st.setString(3, personas.getDireccion());
-            st.setInt(4, personas.getDpi());
+            st.setLong(4, personas.getDpi());
             st.setInt(5, personas.getTel_movil());
             st.setInt(6, personas.getNit());
             st.setString(7, personas.getFecha_nac());
@@ -46,7 +46,7 @@ public class PersonaDAOAdmon extends DAO {
                 per.setNombre((result.getString("nombre")));
                 per.setApellido((result.getString("apellido")));
                 per.setDireccion((result.getString("direccion")));
-                per.setDpi(result.getInt("dpi"));
+                per.setDpi(result.getLong("dpi")); 
                 per.setTel_movil((result.getInt("telefono_movil")));
                 per.setNit(result.getInt("nit"));
                 per.setFecha_nac((result.getString("fecha_nacimiento")));
