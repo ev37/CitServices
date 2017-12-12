@@ -46,6 +46,7 @@
             }
         </style>
         <f:event type="preRenderView" listener="#{usuariosBeanAdmon.listarPersona()}"/>
+        <f:event type="preRenderView" listener="#{usuariosBeanAdmon.listarTipoUsuario()}"/>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -103,7 +104,7 @@
                              look="primary" collapsible="false" style=" background-color:#F7F5F5">
                         <center>
                             <h:form id="frm">
-                                <h2>Ingreso De Personas</h2>
+                                <h2>Ingreso De Usuarios</h2>
                                 <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                                 <h:panelGrid columns="2">
                                     <p:outputLabel value="Persona:"/>
@@ -113,12 +114,14 @@
                                     </b:selectOneMenu>
                                     <p:outputLabel value="UserName:"/>
                                     <p:inputText value="#{usuariosBeanAdmon.usuario.nombre}"/>
-                                    <p:outputLabel value="Contraseña:"/>
-                                    <p:inputText value="#{usuariosBeanAdmon.usuario.contraseña}"/>
+                                    
+                                    <p:outputLabel  value="Contraseña:"/>
+                                    <p:password value="#{usuariosBeanAdmon.usuario.contraseña}"/>
+                                 
                                     <p:outputLabel value="Tipo de Usuario:"/>
-                                    <b:selectOneMenu value="#{usuariosBeanAdmon.usuario.id_usuario}"  required="true"  style="width: 150px">
+                                    <b:selectOneMenu value="#{usuariosBeanAdmon.tipo.id_TipoUsuario}"  required="true"  style="width: 150px">
                                         <f:selectItems itemLabel="(Please select)" itemValue="" />
-                                        <f:selectItems value="#{usuariosBeanAdmon.lstPersonas}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.id}" />              
+                                        <f:selectItems value="#{usuariosBeanAdmon.lstTipoUsuario}" var="persona" itemLabel="#{persona.tipoUsuario}" itemValue="#{persona.id_TipoUsuario}" />              
                                     </b:selectOneMenu>
 
                                 </h:panelGrid>

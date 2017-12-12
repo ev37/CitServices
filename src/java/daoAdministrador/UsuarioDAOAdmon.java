@@ -1,6 +1,7 @@
 package daoAdministrador;
 
 import ModeloAdministrador.Personas;
+import ModeloAdministrador.TipoUsuario;
 import ModeloAdministrador.Usuarios;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,23 +48,23 @@ public class UsuarioDAOAdmon extends DAO {
         return lista;
     }
 
-    public List<T> listarPersona() {
-        List<Personas> lista = new ArrayList();
+    public List<TipoUsuario> listarTipoUsuario() {
+        List<TipoUsuario> lista1 = new ArrayList();
         ResultSet rs;
         try {
             this.conectar();
-            PreparedStatement st = this.getCn().prepareCall("select id_persona, nombre  from persona where persona.id_persona not in(select usuarios.id_usuario from usuarios)");
+            PreparedStatement st = this.getCn().prepareCall("select * from tipos_usuario");
             rs = st.executeQuery();
 
             while (rs.next()) {
-                Personas persona = new Personas();
-                persona.setId(rs.getInt("id_persona"));
-                persona.setNombre(rs.getString("nombre"));
-                lista.add(persona);
+                TipoUsuario tipo = new TipoUsuario();
+                tipo.setId_TipoUsuario(rs.getInt("id_tipoUsuario"));
+                tipo.setTipoUsuario(rs.getString("tipoUsuario"));
+                lista1.add(tipo);
             }
         } catch (Exception ex) {
-            System.out.println("Error en Lista Persona " + ex);
+            System.out.println("Error en Lista Tipo Usuario " + ex);
         }
-        return lista;
+        return lista1;
     }
 }
