@@ -1,50 +1,62 @@
 package daoCliente;
 
-
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import modeloCliente.cliente;
+import modeloCliente.tablaCliente;
 
-public class modificarClienteDao extends dao.DAO{
+public class modificarClienteDao extends dao.DAO {
+
     private String sql;
     private PreparedStatement sta;
-    
-    public void modficar(cliente cle){
+
+    public void modficar(cliente cle) {
         try {
             this.conectar();
             sql = "update persona set telefono_movil=?, telefono_casa=? where id_persona=?";
-            sta = this.getCn().prepareStatement(sql); 
+            sta = this.getCn().prepareStatement(sql);
             sta.setInt(1, cle.getTelefono_movil());
             sta.setInt(2, cle.getTelefono_casa());
             sta.setInt(3, cle.getIdCliente());
             sta.executeUpdate();
         } catch (Exception ex) {
-            System.out.println("Error al modificar al cliente: "+ex);
+            System.out.println("Error al modificar al cliente: " + ex);
         }
-        
+
     }
-    
-//    public List<cliente> listarCliente(cliente cle){
-//        List<cliente> lista = null;
-//        ResultSet res;
-//        
-//        try {
-//            this.conectar();
-//            sql="select * from clientes where id_cliente=?";
-//            sta = this.getCn().prepareStatement(sql);
-//            sta.setInt(1, cle.getIdCliente());
-//            res = sta.executeQuery();
-//            lista = new ArrayList();
-//            while(res.next()){
-//                cliente clie = new cliente();
-//                clie.setDireccion(res.getString("direccion"));
-//                clie.setEmail(res.getString("email"));
-//                clie.setTelefono(res.getInt("telefono")); 
-//                sta.executeQuery();
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Error en listar cliente"+e);
-//        }
-//        
-//        return lista;
-//    }
+
+    public List<tablaCliente> listarCliente(int codigo) {
+        List<tablaCliente> listad;
+        listad = new ArrayList();
+        try {
+
+            ResultSet result;
+            this.conectar();
+            PreparedStatement st = this.getCn().prepareCall("select persona.nombre,persona.apellido,persona.direccion,persona.dpi,persona.telefono_movil,persona.nit,persona.fecha_nacimiento,persona.telefono_casa\n"
+                    + "from clientes INNER JOIN persona ON persona.id_persona = clientes.id_cliente where clientes.id_cliente=?");
+
+            st.setInt(1, codigo);
+            result = st.executeQuery();
+
+            while (result.next()) {
+                tablaCliente cliente = new tablaCliente();
+                
+                cliente.setNombre(result.getString("nombre"));
+                cliente.setApellido(result.getString("apellido"));
+                cliente.setDireccion(result.getString("direccion"));
+                cliente.setNit(result.getLong("nit"));
+                cliente.setDpi(result.getLong("dpi"));
+                cliente.setTel_casa(result.getInt("telefono_casa"));
+                cliente.setTel_movil(result.getInt("telefono_movil"));
+                cliente.setFecha_nac(result.getString("fecha_nacimiento"));
+                listad.add(cliente);
+            }
+        } catch (Exception ex) {
+            System.out.println("Error al Listar Cliente DAO" + ex);
+        }
+        return listad;
+    }
+
 }

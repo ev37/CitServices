@@ -5,6 +5,7 @@ package modeloCliente;
 public class cliente {
     
     private int idCliente;
+    private String direccion;
     private int telefono_movil;
     private int telefono_casa;
 
@@ -38,6 +39,14 @@ public class cliente {
 
     public void setTelefono_casa(int telefono_casa) {
         this.telefono_casa = telefono_casa;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
     
     
