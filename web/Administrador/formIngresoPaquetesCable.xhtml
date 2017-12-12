@@ -44,6 +44,7 @@
 
             }
         </style>
+        <f:event type="preRenderView" listener="#{paqueteBeanAdmon.listarTipoServicio()}"/>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -97,34 +98,35 @@
                 </div>
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
-                    <center>
-
-
-                        <h:form id="frm">
-                            <h2>Ingreso De Personas</h2>
-                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                            <h:panelGrid columns="2">                    
-                                <p:outputLabel value="Nombre:"/>
-                                <p:inputText value="#{personaBean.per.nombre}"/>
-                                <p:outputLabel value="Apellido:"/>
-                                <p:inputText value="#{personaBean.per.apellido}"/>
-                                <p:outputLabel value="Direccion:"/>
-                                <p:inputText value="#{personaBean.per.direccion}"/>
-                                <p:outputLabel value="DPI:"/>
-                                <p:inputText value="#{personaBean.per.dpi}"/>
-                                <p:outputLabel value="Tel Movil:"/>
-                                <p:inputText value="#{personaBean.per.tel_movil}"/>
-                                <p:outputLabel value="NIT:"/>
-                                <p:inputText value="#{personaBean.per.nit}"/>
-                                <p:outputLabel value="Fecha Nacimiento:"/>
-                                <p:inputText value="#{personaBean.per.fecha_nac}"/>
-                                <p:outputLabel value="Tel Casa:"/>
-                                <p:inputText value="#{personaBean.per.tel_casa}"/>
-                            </h:panelGrid>
-                            <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}"/>
-                            <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
-                        </h:form>
-                    </center>
+                    <b:panel title="Ingreso de Clientes"
+                             look="primary" collapsible="false" style=" background-color:#F7F5F5">
+                        <center>
+                            <h:form id="frm">
+                                <h2>Paquetes Cable</h2>
+                                <img  class="centrado" id="imagen" src="Resources/img/tvcable.png" width="175"/>
+                                <br/><br/>
+                                <h:panelGrid columns="2">                    
+                                    <p:outputLabel value="Nombre:"/>
+                                    <p:inputText value="#{paqueteBeanAdmon.paq.nombre}"/>
+                                    <p:outputLabel value="Descripcion:"/>
+                                    <p:inputText value="#{paqueteBeanAdmon.paq.descripcion}"/>
+                                    <p:outputLabel value="Tipo de Servicio:"/>
+                                    <b:selectOneMenu value="#{paqueteBeanAdmon.paq.idTipoServicio}"  required="true"  style="width: 150px">
+                                            <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                            <f:selectItems value="#{paqueteBeanAdmon.lstTipoServicio}" var="tipo" itemLabel="#{tipo.nombre}" itemValue="#{tipo.id_tiposervicio}" />              
+                                        </b:selectOneMenu>
+                                    <p:outputLabel value="Costo:"/>
+                                    <p:inputText value="#{personaBean.per.dpi}"/>
+                                    <p:outputLabel value="Precio Venta:"/>
+                                    <p:inputText value="#{personaBean.per.tel_movil}"/>
+                                </h:panelGrid>
+                                <br/><br/><br/>
+                                <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{paqueteBeanAdmon.registrarPaquete()}"/>
+                                <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                            </h:form>
+                        </center>
+                        <b:messages />
+                    </b:panel>
                 </div>
             </div>
         </div>
