@@ -124,6 +124,37 @@
                                 <br/>
                                 <b:commandButton update="@form" value="modificar" actionListener="#{modificarClienteBean.modificar()}"/>
                             </h:panelGrid>
+                            
+                            <br/><br/><br/><br/>
+
+                                <p:dataTable id="nuevo"  var="Dato" value="#{modificarClienteBean.listTabCliente}" reflow="true">
+
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{Dato.nombre}" />
+                                    </p:column>
+                                    <p:column headerText="Apellido">
+                                        <h:outputText value="#{Dato.apellido}" />
+                                    </p:column>
+                                    <p:column headerText="Direccion">
+                                        <h:outputText value="#{Dato.direccion}" />
+                                    </p:column>
+                                    <p:column headerText="dpi">
+                                        <h:outputText value="#{Dato.dpi}" />
+                                    </p:column>
+                                    <p:column headerText="Telefono_movil">
+                                        <h:outputText value="#{Dato.tel_movil}" />
+                                    </p:column>
+                                    <p:column headerText="Nit">
+                                        <h:outputText value="#{Dato.nit}" />
+                                    </p:column>
+                                    <p:column headerText="Fecha_Nacimiento">
+                                        <h:outputText value="#{Dato.fecha_nac}" />
+                                    </p:column>
+                                    <p:column headerText="Telefono_Casa">
+                                        <h:outputText value="#{Dato.tel_casa}" />
+                                    </p:column>
+                                </p:dataTable>
+                                
                         </b:form>
                     </center>
                     </b:panel>
