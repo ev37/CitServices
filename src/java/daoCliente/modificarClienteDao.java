@@ -2,6 +2,7 @@ package daoCliente;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modeloCliente.cliente;
@@ -12,16 +13,18 @@ public class modificarClienteDao extends dao.DAO {
     private String sql;
     private PreparedStatement sta;
 
-    public void modficar(cliente cle) {
+    public void modficar(cliente cle) throws Exception {
         try {
             this.conectar();
-            sql = "update persona set telefono_movil=?, telefono_casa=? where id_persona=?";
+            sql = "update persona set telefono_movil=?, telefono_casa=?, direccion=? where id_persona=?";
             sta = this.getCn().prepareStatement(sql);
             sta.setInt(1, cle.getTelefono_movil());
             sta.setInt(2, cle.getTelefono_casa());
-            sta.setInt(3, cle.getIdCliente());
+            sta.setString(3, cle.getDireccion());
+            System.out.println("id: "+cle.getIdCliente());
+            sta.setInt(4, cle.getIdCliente());
             sta.executeUpdate();
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Error al modificar al cliente: " + ex);
         }
 

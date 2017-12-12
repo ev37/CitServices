@@ -22,9 +22,10 @@ public class modificarClienteBean {
     private plantillaController plantBean;
     
     public void modificar() {
-        modificarClienteDao clienBean;
+       
         try {
-            clienBean = new modificarClienteDao();
+            clie.setIdCliente(plantBean.getUsua().getId_usuario());
+            modificarClienteDao clienBean = new modificarClienteDao();
             clienBean.modficar(clie);
 
         } catch (Exception e) {
