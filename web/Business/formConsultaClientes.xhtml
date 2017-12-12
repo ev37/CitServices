@@ -107,13 +107,15 @@
                     </ul>
                 </div>
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                     <b:panel title="Consulta General"
+                              look="primary" collapsible="false" style=" background-color:#F7F5F5">
                     <h:form id="form" >
 
                         <h2 title=" Consulta Clientes"></h2>
                         <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
 
-                        <h:panelGrid>
+                        <h:panelGrid columns="4"   styleClass="ui-panelgrid-blank">
                             <p:outputLabel value="Codigo:"/>
                             <p:inputText id="Codigo" value="#{consultaClientesBean.codigo}"/>
 
@@ -160,6 +162,7 @@
                         <p:commandButton value="Cancelar"  />
 
                     </h:form>
+                         </b:panel>
                 </div>
             </div>
         </div>

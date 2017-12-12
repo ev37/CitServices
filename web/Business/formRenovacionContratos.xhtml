@@ -108,13 +108,19 @@
                     </ul>
                 </div>
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                     <b:panel title="Renovacion de Contratos"
+                              look="primary" collapsible="false" style=" background-color:#F7F5F5">
                     <h:form id="myFormID">
                         <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
+                        <p:panelGrid columns="4"   styleClass="ui-panelgrid-blank">
+                        
                         <h:outputLabel value="Ingrese Id Cliente" />
                         <b:inputText value="#{renovacionBean.contratos.id_cliente}" />
+                        
 
-                        <b:commandButton value="Listar" actionListener="#{renovacionBean.listar()}" update="myFormID"/>                
+                        <b:commandButton value="Listar" actionListener="#{renovacionBean.listar()}" update="myFormID"/>  
+                        </p:panelGrid>
 
                         <p:dataTable id="cars" var="contratos" value="#{renovacionBean.lstContratos}" reflow="true" rows="5" paginator="true">
                             <p:column headerText="Fecha de Contratacion">
@@ -144,7 +150,9 @@
                             <p:column headerText="Modificar">
                                 <b:button value="Modificar" onclick="$('.modalPseudoClass2').modal()" size="lg" />                                
                             </p:column>
+                            
                         </p:dataTable>
+                        
                         <b:modal id="amodal2" title="Modal Example" styleClass="modalPseudoClass2"
                                  closable="false"  close-on-escape="false" backdrop="false">
 
@@ -190,6 +198,7 @@
                         </b:modal>
 
                     </h:form>
+                         </b:panel>
                 </div>
             </div>
         </div>

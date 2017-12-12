@@ -108,12 +108,14 @@
                     </ul>
                 </div>
 
-                <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main"> 
+                <div class="col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
+                     <b:panel title="Modificar Datos Clientes"
+                              look="primary" collapsible="false" style=" background-color:#F7F5F5">
                     <h2 title=" Consulta de Coberturas"></h2>
                     <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                     <center>
                         <b:form horizontal="true">
-                            <h:panelGrid>
+                            <h:panelGrid columns="4"   styleClass="ui-panelgrid-blank">
                                 <b:inputText id="idCliente" value="#{modificarClienteBean.clie.idCliente}" label="ID Cliente: " colMd="7" labelColMd="5" placeholder="ID Cliente"/>
 
                                 <b:inputText id="idDireccion" value="#{modificarClienteBean.clie.telefono_movil}" label="Direccion:" colMd="7" labelColMd="5" placeholder="Direccion"/>
@@ -124,6 +126,7 @@
                             </h:panelGrid>
                         </b:form>
                     </center>
+                    </b:panel>
                 </div>
             </div>
         </div>

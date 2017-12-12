@@ -106,14 +106,16 @@
                     </ul>
                 </div>
 
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+                     <b:panel title="Ingreso de Persona"
+                              look="primary" collapsible="false" style=" background-color:#F7F5F5">
                     <center>
 
 
                         <h:form id="frm">
                             <h2>Ingreso De Personas</h2>
                             <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                            <h:panelGrid columns="2">                    
+                            <h:panelGrid columns="4"   styleClass="ui-panelgrid-blank">                    
                                 <p:outputLabel value="Nombre:"/>
                                 <p:inputText value="#{personaBean.per.nombre}"/>
                                 <p:outputLabel value="Apellido:"/>
@@ -135,6 +137,7 @@
                             <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
                         </h:form>
                     </center>
+                         </b:panel>
                 </div>
             </div>
         </div>
