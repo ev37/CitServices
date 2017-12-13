@@ -111,31 +111,31 @@
                      <b:panel title="Reclamos"
                               look="primary" collapsible="false" style=" background-color:#F7F5F5">
                     <center>
-                        <h:panelGrid columns="4"   styleClass="ui-panelgrid-blank">
+                        <h:form id="frmi">
+                        
                             <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                             <h2 title="Reclamo">Reclamo</h2>
-                        </h:panelGrid>
+                        
                         <br/>
                         <br/>
-                        <h:panelGrid class="center-block">
-                            <b:form horizontal="true">
-                                <b:row>
+                        <h:panelGrid  columns="3">
+                            
+                                
                                     <b:inputText value="#{reclamoBean.rec.idCliente}" required="true" colMd="7" labelColMd="5" label="id cliente"/>
                                     <b:selectOneMenu value="#{reclamoBean.rec.idTipoReclamo}" id="idTipo"  colMd="7" labelColMd="5" label="Tipo de Reclamo:">
                                         <f:selectItems var="tipo2" value="#{reclamoBean.listReclamo}"  itemLabel="#{tipo2.tipoReclamo}" itemValue="#{tipo2.idTipoReclamo}"/>
                                     </b:selectOneMenu>
 
-                                </b:row>
-                                <b:row>
+                                
                                     <b:inputText value="#{reclamoBean.rec.idEstado}" required="true" colMd="7" labelColMd="5" label="Id Estado"/>
                                     <b:inputTextarea placeholder="Escribe......" value="#{reclamoBean.rec.descripcion}"></b:inputTextarea>
-                                </b:row>
-                                <b:row>
+                                
                                     <b:commandButton value="Enviar" span="5" actionListener="#{reclamoBean.ingresarReclamo()}"/>
                                     <b:messages />
-                                </b:row>
-                            </b:form>   
+                                
+                            
                         </h:panelGrid>
+                        </h:form>
                     </center>
                          </b:panel>
                 </div>

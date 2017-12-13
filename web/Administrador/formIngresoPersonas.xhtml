@@ -80,15 +80,10 @@
                     <ul class="nav nav-sidebar">
                         <li><a href="formIngresoUsuario.xhtml">Ingreso de usuario</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes de cable</a></li>
+                    <ul class="nav nav-sidebar ">
+                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes WEB</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesInternet.xhtml">Paquetes de Internet</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesCombos.xhtml">Paquetes de Combos</a></li>
-                    </ul>
+                    
                     <ul class="nav nav-sidebar">
                         <li><a href="formMostrarReclamos.xhtml">Reclamos</a></li>
                     </ul>
@@ -105,6 +100,7 @@
                             <h:form id="frm">
                                 <h2>Ingreso De Personas</h2>
                                 <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
+                                <br/><br/>
                                 <h:panelGrid columns="2">                    
                                     <p:outputLabel value="Nombre:"/>
                                     <p:inputText value="#{personaBean.per.nombre}"/>
@@ -123,10 +119,11 @@
                                     <p:outputLabel value="Tel Casa:"/>
                                     <p:inputText value="#{personaBean.per.tel_casa}"/>
                                 </h:panelGrid>
+                                <br/><br/><br/>
                                 <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}"/>
                                 <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
                                 
-                                
+                                <br/><br/><br/>
                                 <p:dataTable   var="personas" value="#{personaBeanAdmon.lstPersonas}" reflow="true">
                                     <p:column headerText="Id">
                                         <h:outputText value="#{personas.id}" />

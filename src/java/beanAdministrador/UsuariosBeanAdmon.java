@@ -1,6 +1,7 @@
 package beanAdministrador;
 
 import ModeloAdministrador.Personas;
+import ModeloAdministrador.TipoUsuario;
 
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -18,6 +19,33 @@ public class UsuariosBeanAdmon implements Serializable {
     private Usuarios usuarioSesion = new Usuarios();
     private List<Usuarios> lstUsuarios;
     private List<Personas> lstPersonas;
+    private TipoUsuario tipo = new TipoUsuario();
+    private List<TipoUsuario> lstTipoUsuario;
+    
+
+   
+
+    public UsuariosBeanAdmon() {
+
+    }
+     public TipoUsuario getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoUsuario tipo) {
+        this.tipo = tipo;
+    }
+    
+    
+    public List<TipoUsuario> getLstTipoUsuario() {
+        return lstTipoUsuario;
+    }
+
+    public void setLstTipoUsuario(List<TipoUsuario> lstTipoUsuario) {
+        this.lstTipoUsuario = lstTipoUsuario;
+    }
+    
+    
 
     public Usuarios getUsuarioSesion() {
         return usuarioSesion;
@@ -33,13 +61,6 @@ public class UsuariosBeanAdmon implements Serializable {
 
     public void setLstPersonas(List<Personas> lstPersonas) {
         this.lstPersonas = lstPersonas;
-    }
-    
-    
-    
-
-    public UsuariosBeanAdmon() {
-
     }
 
     public Usuarios getUsuario() {
@@ -61,6 +82,19 @@ public class UsuariosBeanAdmon implements Serializable {
 
         try {
             lstPersonas = dao.listarPersona();
+            
+        } catch (Exception e) {
+            System.out.println("Error en el BEAN");
+            throw e;
+        }
+    }
+    
+    public void listarTipoUsuario() throws Exception {
+
+        UsuarioDAOAdmon dao = new UsuarioDAOAdmon();
+
+        try {
+            lstTipoUsuario = dao.listarTipoUsuario();
             
         } catch (Exception e) {
             System.out.println("Error en el BEAN");

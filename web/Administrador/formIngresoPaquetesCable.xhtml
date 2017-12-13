@@ -44,6 +44,8 @@
 
             }
         </style>
+        <f:event type="preRenderView" listener="#{paqueteBeanAdmon.listarTipoServicio()}"/>
+        <f:event type="preRenderView" listener="#{paqueteBeanAdmon.listarPaquete()}"/>
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -79,14 +81,9 @@
                         <li><a href="formIngresoUsuario.xhtml">Ingreso de usuario</a></li>
                     </ul>
                     <ul class="nav nav-sidebar activo">
-                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes de cable</a></li>
+                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes WEB</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesInternet.xhtml">Paquetes de Internet</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesCombos.xhtml">Paquetes de Combos</a></li>
-                    </ul>
+
                     <ul class="nav nav-sidebar">
                         <li><a href="formMostrarReclamos.xhtml">Reclamos</a></li>
                     </ul>
@@ -97,34 +94,62 @@
                 </div>
 
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">   
-                    <center>
+                    <b:panel title="Ingreso de Clientes"
+                             look="primary" collapsible="false" style=" background-color:#F7F5F5">
+                        <center>
+                            <h:form id="frm">
+                                <h2>Paquetes Disponibles</h2>
+                                <img  class="centrado" id="imagen" src="Resources/img/tvcable.png" width="175"/>
+                                <br/><br/>
+                                <h:panelGrid columns="2">                    
+                                    <p:outputLabel value="Nombre:"/>
+                                    <p:inputText value="#{paqueteBeanAdmon.paq.nombre}"/>
+                                    <p:outputLabel value="Descripcion:"/>
+                                    <p:inputText value="#{paqueteBeanAdmon.paq.descripcion}"/>
+                                    <p:outputLabel value="Tipo de Servicio:"/>
+                                    <b:selectOneMenu value="#{paqueteBeanAdmon.paq.idTipoServicio}"  required="true"  style="width: 150px">
+                                        <f:selectItems itemLabel="(Please select)" itemValue="" />
+                                        <f:selectItems value="#{paqueteBeanAdmon.lstTipoServicio}" var="tipo" itemLabel="#{tipo.nombre}" itemValue="#{tipo.id_tiposervicio}" />              
+                                    </b:selectOneMenu>
+                                    <p:outputLabel value="Costo:"/>
+                                    <p:inputText value="#{personaBean.per.dpi}"/>
+                                    <p:outputLabel value="Precio Venta:"/>
+                                    <p:inputText value="#{personaBean.per.tel_movil}"/>
+                                </h:panelGrid>
+                                <br/><br/><br/>
+                                <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{paqueteBeanAdmon.registrarPaquete()}" update="frm"/>
+                                <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
 
+                                <br/><br/><br/>
+                                <p:dataTable   var="paquete" value="#{paqueteBeanAdmon.lstPaquete}" reflow="true">
+                                    <p:column headerText="Id">
+                                        <h:outputText value="#{paquete.idPaquete}" />
+                                    </p:column>
 
-                        <h:form id="frm">
-                            <h2>Ingreso De Personas</h2>
-                            <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
-                            <h:panelGrid columns="2">                    
-                                <p:outputLabel value="Nombre:"/>
-                                <p:inputText value="#{personaBean.per.nombre}"/>
-                                <p:outputLabel value="Apellido:"/>
-                                <p:inputText value="#{personaBean.per.apellido}"/>
-                                <p:outputLabel value="Direccion:"/>
-                                <p:inputText value="#{personaBean.per.direccion}"/>
-                                <p:outputLabel value="DPI:"/>
-                                <p:inputText value="#{personaBean.per.dpi}"/>
-                                <p:outputLabel value="Tel Movil:"/>
-                                <p:inputText value="#{personaBean.per.tel_movil}"/>
-                                <p:outputLabel value="NIT:"/>
-                                <p:inputText value="#{personaBean.per.nit}"/>
-                                <p:outputLabel value="Fecha Nacimiento:"/>
-                                <p:inputText value="#{personaBean.per.fecha_nac}"/>
-                                <p:outputLabel value="Tel Casa:"/>
-                                <p:inputText value="#{personaBean.per.tel_casa}"/>
-                            </h:panelGrid>
-                            <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}"/>
-                            <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
-                        </h:form>
-                    </center>
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{paquete.nombre}" />
+                                    </p:column>
+
+                                    <p:column headerText="Descripcion">
+                                        <h:outputText value="#{paquete.descripcion}" />
+                                    </p:column>
+
+                                    <p:column headerText="Tipo de Servicio">
+                                        <h:outputText value="#{paquete.idTipoServicio}" />
+                                    </p:column>
+                                    <p:column headerText="Costo">
+                                        <h:outputText value="#{paquete.costo}" />
+                                    </p:column>
+                                    <p:column headerText="Precio Venta">
+                                        <h:outputText value="#{paquete.precioVenta}" />
+                                    </p:column>
+                                    
+                                </p:dataTable>
+
+                            </h:form>
+                        </center>
+                        <b:messages />
+                    </b:panel>
                 </div>
             </div>
         </div>
