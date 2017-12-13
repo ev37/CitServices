@@ -150,4 +150,33 @@ public class paqueteDao extends DAO{
         return lis;
     }
     
+    public List<paquete> listarPaque(){
+        List<paquete> lis = null;
+        ResultSet res;
+        
+        try {
+            this.conectar();
+            query="select * from paquetes";
+            sta = this.getCn().prepareStatement(query);
+            res = sta.executeQuery();
+            lis = new ArrayList();
+            
+            while(res.next()){
+                paquete paq = new paquete();
+                paq.setIdPaquete(res.getInt("id_paquete"));
+                paq.setNombre(res.getString("nombre"));
+                paq.setDescripcion(res.getString("descripcion"));
+                paq.setIdTipoServicio(res.getInt("id_tiposervicio"));
+                paq.setCosto(res.getDouble("costo"));
+                paq.setPrecioVenta(res.getDouble("precioventa"));
+                lis.add(paq);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error: "+ex);
+        } catch (Exception ex) {
+        Logger.getLogger(paqueteDao.class.getName()).log(Level.SEVERE, null, ex);
+      }
+        
+        return lis;
+    }
 }

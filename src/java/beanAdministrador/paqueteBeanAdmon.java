@@ -15,6 +15,17 @@ public class paqueteBeanAdmon{
     private paquete paq = new paquete();
     private List<paquete> lisPaq = new ArrayList();
     private List<TipoServicio> lstTipoServicio = new ArrayList();
+    private List<paquete>lstPaquete = new ArrayList();
+
+    public List<paquete> getLstPaquete() {
+        return lstPaquete;
+    }
+
+    public void setLstPaquete(List<paquete> lstPaquete) {
+        this.lstPaquete = lstPaquete;
+    }
+    
+    
 
     public List<TipoServicio> getLstTipoServicio() {
         return lstTipoServicio;
@@ -92,4 +103,13 @@ public class paqueteBeanAdmon{
         }
     }
     
+    public void listarPaquete(){
+        paqueteDao paqDao;
+        try {
+            paqDao = new paqueteDao();
+            lstPaquete = paqDao.listarPaque();
+        } catch (Exception e) {
+            System.out.println("Error: "+e);
+        }
+    }
 }

@@ -45,7 +45,7 @@
 
             }
         </style>
-        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
+        
     </h:head>
     <h:body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -80,15 +80,10 @@
                     <ul class="nav nav-sidebar">
                         <li><a href="formIngresoUsuario.xhtml">Ingreso de usuario</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes de cable</a></li>
+                    <ul class="nav nav-sidebar ">
+                        <li><a href="formIngresoPaquetesCable.xhtml">Paquetes WEB</a></li>
                     </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesInternet.xhtml">Paquetes de Internet</a></li>
-                    </ul>
-                    <ul class="nav nav-sidebar">
-                        <li><a href="formIngresoPaquetesCombos.xhtml">Paquetes de Combos</a></li>
-                    </ul>
+                    
                     <ul class="nav nav-sidebar activo">
                         <li><a href="formMostrarReclamos.xhtml">Reclamos</a></li>
                     </ul>
@@ -103,7 +98,7 @@
 
 
                         <h:form id="frm">
-                            <h2>Ingreso De Personas</h2>
+                            <h2>Reclamos</h2>
                             <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                             <h:panelGrid columns="2">                    
                                 <p:outputLabel value="Nombre:"/>
