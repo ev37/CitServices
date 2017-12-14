@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Categoria;
 import ModeloAdministrador.Clientes;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Estado;
 import modelo.Personas;
 import modelo.TipoCliente;
@@ -145,4 +148,38 @@ public class ClientesDAO extends DAO {
         }
         return lis;
     }
+     
+      public void modificar(Clientes clie) throws Exception{
+        try{
+           this.conectar();
+           PreparedStatement st = this.getCn().prepareStatement("update clientes set Categoria=?, apellido=?,  telefono=?, direccion=?, correoelectronico=?, cod_genero=? WHERE codigo = ? ");
+           st.setString(1, clie.getNombre());
+           st.setString(2, clie.getCategoria());
+           st.setString(3, clie.getTipo_cliente());
+           st.setString(4, clie.getEstado());
+           st.executeUpdate();
+        }catch(SQLException e){
+            throw e;
+        }finally{
+            this.cerrar();
+        }
+    }
+   
+
+    public void eliminar(Clientes gene) throws SQLException, Exception{
+        
+        try{
+             this.conectar();
+            PreparedStatement st = this.getCn().prepareStatement("delete from cliente  WHERE id_cliente= ? ");
+            st.setInt(1, gene.getId_cliente());
+            st.executeUpdate();
+        }catch (SQLException e){
+            throw e;
+        } catch (Exception ex) {
+            Logger.getLogger(ClientesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            this.cerrar();
+        }
+    }  
+
 }

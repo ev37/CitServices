@@ -1,6 +1,9 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import modelo.Personas;
 
 public class PersonaDAO extends DAO {
@@ -25,5 +28,34 @@ public class PersonaDAO extends DAO {
         } finally {
             this.cerrar();
         }
+    }
+     public List<ModeloAdministrador.Personas> tablaPersona() throws Exception {
+        List<ModeloAdministrador.Personas> lis;
+        lis = new ArrayList();
+        ResultSet result;
+
+        try {
+            this.conectar();
+            PreparedStatement st = this.getCn().prepareCall("select * from persona");
+            result = st.executeQuery();
+            while (result.next()) {
+                ModeloAdministrador.Personas per = new ModeloAdministrador.Personas();
+                per.setId((result.getInt("id_persona")));
+                per.setNombre((result.getString("nombre")));
+                per.setApellido((result.getString("apellido")));
+                per.setDireccion((result.getString("direccion")));
+                per.setDpi(result.getLong("dpi")); 
+                per.setTel_movil((result.getInt("telefono_movil")));
+                per.setNit(result.getInt("nit"));
+                per.setFecha_nac((result.getString("fecha_nacimiento")));
+                per.setTel_casa((result.getInt("telefono_casa")));
+                lis.add(per);
+            }
+        } catch (Exception e) {
+            System.out.println("Muestre error" + e);
+        } finally {
+            this.cerrar();
+        }
+        return lis;
     }
 }
