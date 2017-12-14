@@ -120,7 +120,7 @@
                         <h2>Ingreso De Clientes</h2>
                         <img  class="centrado" id="imagen" src="../resource/imagenes/newuser2.png"/>
                         <h:form id="frm">
-            s                <h:panelGrid columns="4"  styleClass="ui-panelgrid-blank">                    
+                           <h:panelGrid columns="4"  styleClass="ui-panelgrid-blank">                    
                                 <p:outputLabel value="Nombre:"/>
                                 <b:selectOneMenu value="#{clientesBeanAdmon.cliente.id_cliente}"  required="true"  style="width: 150px">
                                     <f:selectItems itemLabel="(Please select)" itemValue="" />
@@ -146,7 +146,7 @@
 
                             </h:panelGrid>
                             <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}"/>
-                            <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                            <p:commandButton class="uk-button uk-button-default" value="Limpiar" onclick="limpiarForm()" update="frm" />
                             
                             
                             

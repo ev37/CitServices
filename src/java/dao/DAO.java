@@ -1,5 +1,5 @@
-
 package dao;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +21,7 @@ public class DAO
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tvinter?user=root&password=");
+            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tvinter?user=jaaer&password=temporal");
             System.out.println("COnectado");
         }catch(Exception e)
         {
@@ -45,3 +45,4 @@ public class DAO
         }
     }
 }
+

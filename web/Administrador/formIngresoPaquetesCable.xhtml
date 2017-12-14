@@ -44,6 +44,11 @@
 
             }
         </style>
+        <script type="text/javascript">
+            function limpiarForm() {
+                document.getElementById("frm").reset();
+            }
+        </script>
         <f:event type="preRenderView" listener="#{paqueteBeanAdmon.listarTipoServicio()}"/>
         <f:event type="preRenderView" listener="#{paqueteBeanAdmon.listarPaquete()}"/>
     </h:head>
@@ -118,7 +123,7 @@
                                 </h:panelGrid>
                                 <br/><br/><br/>
                                 <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{paqueteBeanAdmon.registrarPaquete()}" update="frm"/>
-                                <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                                <p:commandButton class="uk-button uk-button-default" value="Limpiar" onclick="limpiarForm()" update="frm"/>
 
                                 <br/><br/><br/>
                                 <p:dataTable   var="paquete" value="#{paqueteBeanAdmon.lstPaquete}" reflow="true">
