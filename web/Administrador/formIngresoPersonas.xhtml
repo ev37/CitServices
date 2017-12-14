@@ -45,6 +45,11 @@
 
             }
         </style>
+        <script type="text/javascript">
+            function limpiarForm() {
+                document.getElementById("frm").reset();
+            }
+        </script>
         <f:event type="preRenderView" listener="#{personaBeanAdmon.listarPersonas()}"/>
     </h:head>
     <h:body>
@@ -120,8 +125,8 @@
                                     <p:inputText value="#{personaBean.per.tel_casa}"/>
                                 </h:panelGrid>
                                 <br/><br/><br/>
-                                <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}" update="frm"/>
-                                <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                                <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}" update="frm" onclick="limpiarForm()"/>
+                                <p:commandButton class="uk-button uk-button-default" value="Limpiar" onclick="limpiarForm()" />
                                 
                                 <br/><br/><br/>
                                 <p:dataTable   var="personas" value="#{personaBeanAdmon.lstPersonas}" reflow="true">

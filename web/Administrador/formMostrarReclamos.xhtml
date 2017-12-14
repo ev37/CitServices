@@ -45,6 +45,11 @@
 
             }
         </style>
+        <script type="text/javascript">
+            function limpiarForm() {
+                document.getElementById("frm").reset();
+            }
+        </script>
         <f:event type="preRenderView" listener="#{reclamoBeanAdmon.listarCliente()}"/>
         <f:event type="preRenderView" listener="#{reclamoBeanAdmon.listarEstado()}"/>
         <f:event type="preRenderView" listener="#{reclamoBeanAdmon.listarTip()}"/>
@@ -126,7 +131,7 @@
 
                                 </h:panelGrid>
                                 <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{personaBean.registrarEmpleados()}" update="frm"/>
-                                <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                                <p:commandButton class="uk-button uk-button-default" value="Limpiar" onclick="limpiarForm()" />
                                 <br/><br/><br/><br/>
 
                                 <p:dataTable   var="reclamos" value="#{reclamoBeanAdmon.lstreclamofinal}" reflow="true">

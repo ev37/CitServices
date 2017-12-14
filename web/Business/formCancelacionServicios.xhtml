@@ -25,6 +25,11 @@
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="Resources/assets/js/ie-emulation-modes-warning.js"></script>
+        <script type="text/javascript">
+            function limpiarForm() {
+                document.getElementById("form").reset();
+            }
+        </script>
         <style type="text/css">
             .centrado{
                 margin:10px auto;
@@ -118,6 +123,7 @@
                             <p:outputLabel value="Codigo Del Cliente"/>
                             <p:inputText value="#{bajasBean.codigo}" />                                
                             <p:commandButton value="Buscar" action="#{bajasBean.listarTodo()}" update="form" />
+                            <p:commandButton value="Buscar" onclick="limpiarForm()" update="form" />
                         </h:panelGrid>
 
 
