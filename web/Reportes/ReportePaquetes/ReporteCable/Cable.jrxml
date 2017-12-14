@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="edd730db-b3d6-475d-b6ef-1fc0fbfac4fb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT paquetes.id_paquete, paquetes.nombre, paquetes.descripcion, tipos_servicios.nombre, paquetes.costo,paquetes.precioventa
+ from paquetes inner JOIN tipos_servicios on paquetes.id_tiposervicio= tipos_servicios.id_tiposervicio WHERE tipos_servicios.nombre = 'Cable';]]>
+	</queryString>
+	<field name="id_paquete" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="costo" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioventa" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="129" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="166" height="129" uuid="f6c03a3f-ca9b-4bd4-89d1-ca2fdce780c3"/>
+				<imageExpression><![CDATA["logocitfinal.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="197" y="0" width="188" height="33" forecolor="#CC0000" uuid="36a06713-22d0-44f0-bcfd-664007214406"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[CIT SERVICES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="222" y="33" width="180" height="22" uuid="2a7b6a95-34b9-4313-9347-b6738a4aed79"/>
+				<text><![CDATA[35AV 3-75 ZONA 15]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="214" y="96" width="243" height="33" forecolor="#000000" uuid="ca1a6ed9-893a-40da-abbe-3ff9d5cc4b32"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[REPORTE CABLE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="2690056e-4307-415d-b5bb-827e55112a62"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="111" height="15" uuid="3f5198d7-ac99-4422-bcb3-01bef40a416e"/>
+				<text><![CDATA[id_paquete]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="19" width="111" height="15" uuid="41ff1834-6821-4f78-bcdf-280f630b1812"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="222" y="19" width="111" height="15" uuid="ff578f11-c9be-46d2-ad7d-f907e21693e1"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="333" y="19" width="111" height="15" uuid="be8acad0-4ccd-447e-9db4-4b1f3bdf725b"/>
+				<text><![CDATA[costo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="444" y="19" width="111" height="15" uuid="7d0d25ec-06c4-4ea9-8434-a8e20c2790e1"/>
+				<text><![CDATA[precioventa]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="a67e7b3d-d8ab-45b3-9726-1a65cd93f13e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="111" height="15" uuid="c7b84eb6-e408-4ed4-880b-17f0cead1b51"/>
+				<textFieldExpression><![CDATA[$F{id_paquete}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="111" y="0" width="111" height="15" uuid="423d28bf-c31c-4615-8ec5-e9442509163d"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="222" y="0" width="111" height="15" uuid="3e7933cb-8f17-44a7-a89c-f51bd64c9f71"/>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="333" y="0" width="111" height="15" uuid="95ada8df-230b-4791-8e37-f6850632b3e1"/>
+				<textFieldExpression><![CDATA[$F{costo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="444" y="0" width="111" height="15" uuid="3485c79b-ead9-49eb-8f9e-7c8e23240ebb"/>
+				<textFieldExpression><![CDATA[$F{precioventa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="dec53883-5847-45b6-a147-cdb9dce4aaab"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="b107dcd5-1414-400f-9b31-9ab1fd9ef736"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="0aa95642-2860-4d66-8f1c-1d375ae96d8b"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="3cfc1ae6-683e-4432-9759-d9464784241c"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
