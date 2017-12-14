@@ -65,7 +65,7 @@
                                 <li><a href="combos.xhtml">Combos</a></li>
                             </ul>
                         </li>
-                        <li><a href="#about">Ubicaciones</a></li>
+                        <li><a href="ubic.xhtml">Ubicaciones</a></li>
                         <li><a href="contactenos.xhtml">Contactenos</a></li>
                     </ul>
 
@@ -82,6 +82,7 @@
                 <h:form>
                     <b:dataTable value="#{paqueteBean.lisPaq}"
                                  var="tabla">
+                        <b:dataTableColumn value="#{tabla.nombre}" label="Nombre"/>
                         <b:dataTableColumn value="#{tabla.precioVenta}" label="Precio"/>
                         <b:dataTableColumn value="#{tabla.descripcion}" label="Descripcion" />
                     </b:dataTable>

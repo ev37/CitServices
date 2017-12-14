@@ -16,8 +16,8 @@
         <title>CIT Services</title>
         <!-- UIkit CSS -->
 
-        
-        
+
+
         <!-- Bootstrap core CSS -->
         <link href="../dist/css/bootstrap.min.css" rel="stylesheet"/>
 
@@ -25,7 +25,7 @@
         <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
 
         <!-- Custom styles for this template -->
-        
+
 
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -57,15 +57,15 @@
                     <ul class="nav navbar-nav">
                         <li><a href="../index.xhtml">Home</a></li>
                         <li><a href="nosotros.xhtml">Nosotros</a></li>
-                        <li class="dropdown active">
+                        <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paquetes <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="internet.xhtml">Internet</a></li>
                                 <li><a href="cable.xhtml">Cable</a></li>
-                                <li class="active"><a href="combos.xhtml">Combos</a></li>
+                                <li class=""><a href="combos.xhtml">Combos</a></li>
                             </ul>
                         </li>
-                        <li><a href="ubic.xhtml">Ubicaciones</a></li>
+                        <li class="active"><a href="ubic.xhtml">Ubicaciones</a></li>
                         <li ><a href="contactenos.xhtml">Contactenos</a></li>
                     </ul>
 
@@ -76,21 +76,16 @@
             </div>
         </nav>
         <br/><br/><br/>
-      
-             <div class="column" align="center">
+
+        <div class="column" align="center">
             <div class="field half first">
-                <h:form>
-                    <b:dataTable value="#{paqueteBean.lisPaq}"
-                                 var="tabla">
-                        <b:dataTableColumn value="#{tabla.nombre}" label="Nombre"/>
-                        <b:dataTableColumn value="#{tabla.precioVenta}" label="Precio"/>
-                        <b:dataTableColumn value="#{tabla.descripcion}" label="Descripcion" />
-                    </b:dataTable>
-                </h:form>
+                <div class="google-maps">
+                    <iframe  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25968.574617858027!2d-90.50608717598952!3d14.641647912277447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1506015707453" width="600" height="450" frameborder="0" style="border:0"  ></iframe>
+                </div>
             </div>
         </div>
 
-                
+
 
         <!-- FOOTER -->
         <footer>

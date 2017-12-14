@@ -83,6 +83,7 @@
                 <h:form>
                     <b:dataTable value="#{paqueteBean.lisPaq}"
                                  var="tabla">
+                        <b:dataTableColumn value="#{tabla.nombre}" label="Nombre"/>
                         <b:dataTableColumn value="#{tabla.precioVenta}" label="Precio"/>
                         <b:dataTableColumn value="#{tabla.descripcion}" label="Descripcion" />
                     </b:dataTable>
