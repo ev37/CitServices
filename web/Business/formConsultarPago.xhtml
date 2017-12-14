@@ -16,7 +16,7 @@
         <link rel="icon" href="../../favicon.ico"></link>
         <!-- Bootstrap core CSS -->
         <link href="Resources/dist/css/bootstrap.min.css" rel="stylesheet"/>
-        <f:event type="preRenderView" listener="#{plantillaController.verificarSesion()}"/>
+       
         <f:event type="preRenderView" listener="#{nuevaTablaBean.listarTabla()}"/>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href=" Resources/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
@@ -122,7 +122,7 @@
                                 <b:row styleClass="show-grid">
                                     <b:column col-xs="3" col-sm="6" col-md="6">
                                         <center>
-                                            <b:inputText disabled="true" label="id cliente" value="#{nuevaTablaBean.plantBean.usua.id_usuario}"/>
+                                            <b:inputText  label="id cliente" value=""/>
                                         </center>
                                     </b:column>
                                 </b:row>
