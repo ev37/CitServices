@@ -45,8 +45,9 @@
 
             }
         </style>
-        <f:event type="preRenderView" listener="#{clientesBeanAdmon.listartodosId()}"/>
+          <f:event type="preRenderView" listener="#{clientesBeanAdmon.listartodosId()}"/>
         <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarPersona()}"/>
+        <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarclientes()}"/>
         <script type="text/javascript">
             function limpiarForm() {
                 document.getElementById("frm").reset();
@@ -146,6 +147,31 @@
                             </h:panelGrid>
                             <p:commandButton class="uk-button uk-button-default" value="Nuevo" action="#{clientesBeanAdmon.registrarClientes()}"/>
                             <p:commandButton class="uk-button uk-button-default" value="Cancelar" />
+                            
+                            
+                            
+                             <br/><br/><br/><br/>
+
+                             <p:dataTable   var="clientes" value="#{clientesBeanAdmon.lstCliente}" reflow="true">
+                                    <p:column headerText="Id">
+                                        <h:outputText value="#{clientes.id_cliente}" />
+                                    </p:column>
+
+                                    <p:column headerText="Cliente">
+                                        <h:outputText value="#{clientes.cliente}" />
+                                    </p:column>
+
+                                    <p:column headerText="Categoria">
+                                        <h:outputText value="#{clientes.categoria}" />
+                                    </p:column>
+
+                                    <p:column headerText="Tipo Cliente">
+                                        <h:outputText value="#{clientes.tipo_cliente}" />
+                                    </p:column>
+                                    <p:column headerText="Estado">
+                                        <h:outputText value="#{clientes.estado}" />
+                                    </p:column>
+                                </p:dataTable>
                         </h:form>  
                     </center>
                          </b:panel>

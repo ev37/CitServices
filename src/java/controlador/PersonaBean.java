@@ -1,6 +1,7 @@
 package controlador;
 
 import dao.PersonaDAO;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import modelo.Personas;
@@ -10,6 +11,16 @@ import modelo.Personas;
 
 public class PersonaBean {
     private Personas per= new Personas();
+    private List<ModeloAdministrador.Personas> lstPersonas;
+
+    public List<ModeloAdministrador.Personas> getLstPersonas() {
+        return lstPersonas;
+    }
+
+    public void setLstPersonas(List<ModeloAdministrador.Personas> lstPersonas) {
+        this.lstPersonas = lstPersonas;
+    }
+    
 
     public Personas getPer() {
         return per;
@@ -29,6 +40,15 @@ public class PersonaBean {
             dao.registrar(per);
         } catch (Exception e) {
             System.out.println("Error en el Bean"+e);
+        }
+    }
+     
+      public void listarPersonas() throws Exception {
+        PersonaDAO dao = new PersonaDAO();
+        try {
+            lstPersonas = dao.tablaPersona();
+        } catch (Exception e) {
+            System.out.println("Error en el BEAN listar Personas");
         }
     }
 }

@@ -46,7 +46,7 @@
 
             }
         </style>
-
+ <f:event type="preRenderView" listener="#{clientesBeanAdmon.listarclientes()}"/>
 
     </h:head>
     <h:body>
@@ -127,31 +127,26 @@
                             
                             <br/><br/><br/><br/>
 
-                                <p:dataTable id="nuevo"  var="Dato" value="#{modificarClienteBean.listTabCliente}" reflow="true">
+                                <br/><br/><br/><br/>
 
-                                    <p:column headerText="Nombre">
-                                        <h:outputText value="#{Dato.nombre}" />
+                                <p:dataTable   var="clientes" value="#{clientesBeanAdmon.lstCliente}" reflow="true">
+                                    <p:column headerText="Id">
+                                        <h:outputText value="#{clientes.id_cliente}" />
                                     </p:column>
-                                    <p:column headerText="Apellido">
-                                        <h:outputText value="#{Dato.apellido}" />
+
+                                    <p:column headerText="Cliente">
+                                        <h:outputText value="#{clientes.cliente}" />
                                     </p:column>
-                                    <p:column headerText="Direccion">
-                                        <h:outputText value="#{Dato.direccion}" />
+
+                                    <p:column headerText="Categoria">
+                                        <h:outputText value="#{clientes.categoria}" />
                                     </p:column>
-                                    <p:column headerText="dpi">
-                                        <h:outputText value="#{Dato.dpi}" />
+
+                                    <p:column headerText="Tipo Cliente">
+                                        <h:outputText value="#{clientes.tipo_cliente}" />
                                     </p:column>
-                                    <p:column headerText="Telefono_movil">
-                                        <h:outputText value="#{Dato.tel_movil}" />
-                                    </p:column>
-                                    <p:column headerText="Nit">
-                                        <h:outputText value="#{Dato.nit}" />
-                                    </p:column>
-                                    <p:column headerText="Fecha_Nacimiento">
-                                        <h:outputText value="#{Dato.fecha_nac}" />
-                                    </p:column>
-                                    <p:column headerText="Telefono_Casa">
-                                        <h:outputText value="#{Dato.tel_casa}" />
+                                    <p:column headerText="Estado">
+                                        <h:outputText value="#{clientes.estado}" />
                                     </p:column>
                                 </p:dataTable>
                                 
