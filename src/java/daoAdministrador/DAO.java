@@ -1,7 +1,7 @@
 
 package daoAdministrador;
 
-import dao.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
